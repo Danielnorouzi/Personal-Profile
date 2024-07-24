@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif; /* This identifies the font and also uses the font sans-serif as a redundancy */
+    background-color: #222222; /* This identifies the background color of the main page */
+}
+
+/* This would determine the properties for the log in and sign in page */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 20px;
+    background-color: #3B3B3B;
+    border: 1px solid #141414;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #E6E6DD;
+    font-family: Poppins;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+button[type="button"] {
+    display: block;
+    background-color: #737373;
+    color: #E6E6DD;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 95%;
+    transition: background-color 0.3s, color 0.3s; /* Added fade transformation */
+}
+
+button[type="button"]:hover {
+    background-color: #E6E6DD;
+    color: #000;
+}
+
+.switch-btn {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.switch-btn button {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.switch-btn button:hover {
+    color: #737373;
+}
+
+.switch-btn .active-btn {
+    color: #737373;
+    font-weight: bold;
+    border-bottom: 2px solid #737373;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+#errorPass {
+    color: #FF0000;
+    margin: 15px;
+}
