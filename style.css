@@ -499,11 +499,12 @@ body.nav-active { overflow: hidden; }
 
 .sectionOneTextBox{
   margin-top: 15%;
-  margin-left: 12%;
-  margin-right: 12%;
+  margin-left: 15%;
+  margin-right: 15%;
   position: absolute;
   text-align: center;
   z-index: 3;
+  font-size: 7rem;
 }
 
 .animationText{ 
