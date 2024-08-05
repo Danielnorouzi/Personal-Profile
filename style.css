@@ -247,6 +247,7 @@ body.nav-active { overflow: hidden; }
 
 .title {
   color: #000;
+  font-size: var(--fontSize-2);
   font-family: var(--fontFamily-recoleta);
   font-weight: var(--weight-regular);
   z-index: 1;
