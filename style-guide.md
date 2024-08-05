@@ -66,7 +66,7 @@ Ionicon
 --fontFamily-recoleta: 'Recoleta';
 --fontFamily-roboto: 'Roboto', sans-serif;
 
---fontSize-1: 4.6rem;
+--fontSize-1: 7rem;
 --fontSize-2: 4.5rem;
 --fontSize-3: 4rem;
 --fontSize-4: 3rem;
