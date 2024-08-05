@@ -16,7 +16,7 @@
     <!--- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <linkhref="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/font/font.css" />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
     <header class="header" data-header>
       <div class="container">
         <a href="#" >
-          <img id="logo" class="logoPresent" src="logoName.png" width="150" height="26" style="margin-left: -250px;margion-right: 400px;" alt="logo" />
+          <img id="logo" class="logoPresent" src="logoName.png" width="150" height="26" alt="logo" />
         </a>
     
         <nav class="navbar" data-navbar>
@@ -61,7 +61,7 @@
             </button>
           </div>
     
-          <ul style="magin-left: 700px;" class="navbar-list">
+          <ul class="navbar-list">
             <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
             <li><a onclick="comingUp()" class="navbar-link" data-nav-link>Blogs</a></li>
             <li><a href="#skills" class="navbar-link" data-nav-link>Skills</a></li>
@@ -87,7 +87,12 @@
 
         <div class="sectionOne text-center" id="home">
           <div class="sectionOneTextBox">
-            <center><h1 class="h1 title" style="font-size: 400pz;">  I'm Daniel Norouzi. Web developer from Canada </h1></center>
+            <h1 class="h1 title">
+              I'm D<span class="animationText">aniel Norouzi</span>. Web
+              de<span class="animationText">veloper fro</span>m
+              <span class="animationText">Canada</span>
+            </h1>
+            <!-- title text-->
           </div>
 
           <div
@@ -251,7 +256,7 @@
                 <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763">
                   <img src="LoginProjectImage.png"  width="1000"  height="763"  loading="lazy"  alt="Project poster: Creative & experienced digital design studio"  class="img-cover" />
 
-                  <a  class="btn btn:hover">
+                  <a href="loginPage.html" class="btn btn:hover">
                     <span class="span">Project Details</span>
                     <ion-icon  name="arrow-forward" aria-hidden="true"></ion-icon>
                   </a>
@@ -272,7 +277,7 @@
                 <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763">
                   <img  src="clockImage.png"  width="1000" height="763" loading="lazy" alt="Project poster: Front End Development & Maintenance" class="img-cover"/>
 
-                  <a  class="btn btn:hover">
+                  <a href="C:\Users\user\OneDrive\Desktop\personal portfolia\My-timer\timer.html" class="btn btn:hover">
                     <span class="span">Project Details</span>
 
                     <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
@@ -283,7 +288,7 @@
                   <p class="card-subtitle">Web, Product, back send programming</p>
 
                   <h3 class="title h3">
-                    <a hclass="card-title"> Clock (alarm, timer, stop watch) </a>
+                    <a href="C:\Users\user\OneDrive\Desktop\personal portfolia\My-timer\timer.html" class="card-title"> Clock (alarm, timer, stop watch) </a>
                   </h3>
                 </div>
               </div>
@@ -420,18 +425,8 @@
     <!-- 
     - custom js link
   -->
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 
-    <!-- 
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    
   </body>
 </html>
