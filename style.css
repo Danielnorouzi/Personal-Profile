@@ -602,7 +602,7 @@ The idea for this code to instead of using index-z for animation change the opac
   margin-top: 7.5%;
   margin-left: 2%;
   margin-right: 2.5%;
-  grid-template-columns: 32% 33% 33%;
+  grid-template-columns: 35% 35% 35%;
   padding: 10px;
   gap: 5x;
 }
@@ -616,16 +616,7 @@ The idea for this code to instead of using index-z for animation change the opac
   border-radius: 25px;
 }
 
-.devidingLine{
-  margin-right:15% ;
-  margin-left:15% ;
-  margin-top: 5%;
-  margin-bottom: 1%;
-  height: 5px;
-  background-color:  var(--text-navyblack);
-  opacity: 0.6;
-  border-radius: 30px; 
-}
+
 /*---------------------------------section two:end---------------------------------------- */
 
 
