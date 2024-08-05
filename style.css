@@ -500,11 +500,11 @@ body.nav-active { overflow: hidden; }
 
 .sectionOneTextBox{
   margin-top: 15%;
-  margin-left: 25%;
+  margin-left: 14%;
   margin-right: 15%;
   position: absolute;
   text-align: center;
-  font-size: 7rem;
+  font-size: 200px;
   z-index: 3;
 }
 
