@@ -600,8 +600,8 @@ The idea for this code to instead of using index-z for animation change the opac
 .skill-container {
   display: grid;
   margin-top: 7.5%;
-  margin-left: 2%;
-  margin-right: 2.5%;
+  margin-left: 1%;
+  margin-right: 1%;
   grid-template-columns: 35% 35% 35%;
   padding: 10px;
   gap: 5x;
