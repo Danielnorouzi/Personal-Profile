@@ -35,7 +35,7 @@
 
   /* font size */
   --fontSize-1: 7rem;
-  --fontSize-2: 7rem;
+  --fontSize-2: 4rem;
   --fontSize-3: 4rem;
   --fontSize-4: 3rem;
   --fontSize-5: 2.4rem;
@@ -131,7 +131,7 @@ ion-icon { pointer-events: none; }
 address { font-style: normal; }
 
 html {
-  font-size: 10px;
+  font-size: 1.5rem;
   scroll-behavior: smooth;
 }
 
@@ -686,6 +686,7 @@ The idea for this code to instead of using index-z for animation change the opac
 
 .skill-wrapper .span {
   font-family: var(--fontFamily-recoleta);
+  font-size: 2rem;
   font-weight: var(--weight-medium);
 }
 
