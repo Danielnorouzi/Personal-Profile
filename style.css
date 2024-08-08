@@ -98,7 +98,7 @@ span,
 input,
 button,
 textarea,
-ion-icon { display: block; font-size: 2rem;}
+ion-icon { display: block; }
 
 h2{font-family: "Syne", sans-serif;}
 
@@ -109,7 +109,6 @@ a {
 
 p{
   color: var(--text-navyblack);
-  font-size: 2rem;
 }
 
 img { height: auto; }
