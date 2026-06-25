@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Daniel Norouzi</title>
+<meta name="description" content="Projects by Daniel Norouzi: an F1 season tracker built in Java, and a gamified life-management calendar app.">
+<link rel="icon" type="image/png" href="Img/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>SECTOR 1 — BUSINESS &amp; COMPUTER SCIENCE, UBC</span>
+    <span>SECTOR 2 — JAVA · JAVASCRIPT · C++</span>
+    <span>SECTOR 3 — TARGET: SOFTWARE ENGINEERING</span>
+    <span>STATUS — OPEN TO 2026 INTERNSHIPS</span>
+    <span>SECTOR 1 — BUSINESS &amp; COMPUTER SCIENCE, UBC</span>
+    <span>SECTOR 2 — JAVA · JAVASCRIPT · C++</span>
+    <span>SECTOR 3 — TARGET: SOFTWARE ENGINEERING</span>
+    <span>STATUS — OPEN TO 2026 INTERNSHIPS</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Daniel<span>.</span>Norouzi</a>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">MENU ☰</button>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link"><span class="tick">01</span>Home</a>
+      <a href="projects.html" class="nav-link active"><span class="tick">02</span>Projects</a>
+      <a href="blog.html" class="nav-link"><span class="tick">03</span>Blog</a>
+      <a href="mailto:danynorouzi@gmail.com" class="nav-link"><span class="tick">04</span>Contact</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="page-header">
+    <div class="wrap">
+      <div class="sector-label">Garage</div>
+      <h1>Projects</h1>
+      <p>Two builds currently in development both works in progress, with more being added as they come together.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="full-projects-grid">
+
+      <!-- F1 Tracker -->
+      <article class="project-detail-card fade-up" id="f1-tracker">
+        <div class="project-thumb">
+            <img style="margin:0;" src="Img/project1.png" alt="Daniel Norouzi First Project F1 stats" />
+        </div>
+        <div class="project-body">
+          <div class="project-tag-row">
+            <span>Java</span><span>·</span><span>Swing</span><span>·</span><span>JUnit</span>
+          </div>
+          <span class="status-badge in-progress">In Progress</span>
+          <h3 style="margin-top: 14px;">F1 Season Tracker</h3>
+          <p>An object oriented desktop application that tracks a full Formula 1 season race by race.</p>
+          <ul class="feature-list">
+            <li>Records race results and automatically updates driver and constructor standings</li>
+            <li>Displays live championship progress through a built in GUI</li>
+            <li>Uses persistence so season data carries over between sessions</li>
+            <li>Built with systematic debugging and JUnit testing throughout development</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub repo →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Life Tracker / Calendar -->
+      <article class="project-detail-card fade-up" id="life-tracker">
+        <div class="project-thumb">
+            <img style="margin:0;" src="Img/project2.png" alt="Daniel Norouzi Second Project life tracker" />
+        </div>
+        <div class="project-body">
+          <div class="project-tag-row">
+            <span>JavaScript</span>
+          </div>
+          <span class="status-badge in-progress">In Progress</span>
+          <h3 style="margin-top: 14px;">Life Tracker (Calendar &amp; Tasks)</h3>
+          <p>A calendar-based app for organizing tasks into separate groups — built around the idea that managing daily life should feel a little more like leveling up in a game than filling out a chore list.</p>
+          <ul class="feature-list">
+            <li>Groups tasks by category so different areas of life stay organized separately</li>
+            <li>Calendar view for tracking what's ahead day to day</li>
+            <li>Server and account security layer planned for an upcoming update</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Danielnorouzi/To-do-List" target="_blank" rel="noopener">GitHub repo →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="logo">Daniel<span>.</span>Norouzi</div>
+      <div class="footer-links">
+        <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:danynorouzi@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="footer-note">North Vancouver, BC · Built &amp; maintained by Daniel Norouzi</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
