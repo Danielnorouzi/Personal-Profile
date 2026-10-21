@@ -167,7 +167,7 @@
 
     cards.forEach((card, i) => {
       const next = cards[i + 1];
-      const img = card.querySelector('.build-media img');
+      const img = card.querySelector('.build-media > img, .build-media > .reel-mock');
 
       if (next) {
         scene(card, () => {

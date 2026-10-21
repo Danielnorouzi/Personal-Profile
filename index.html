@@ -3,9 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Norouzi</title>
-<meta name="description" content="Daniel Norouzi — BUCS student at UBC building practical software, from race-data tools to life-management systems and hackathon projects.">
+<title>Daniel Norouzi — Software Developer &amp; UBC Student</title>
+<meta name="description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta name="author" content="Daniel Norouzi">
+<link rel="canonical" href="https://danielnorouzi.com/">
 <link rel="icon" type="image/png" href="Img/logo.png">
+<link rel="apple-touch-icon" href="Img/logo.png">
+<meta name="theme-color" content="#0A1628">
+
+<!-- Link previews (LinkedIn, iMessage, Slack, X) -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Daniel Norouzi">
+<meta property="og:title" content="Daniel Norouzi — Software Developer &amp; UBC Student">
+<meta property="og:description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta property="og:url" content="https://danielnorouzi.com/">
+<meta property="og:image" content="https://danielnorouzi.com/Img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daniel Norouzi, Business &amp; Computer Science at UBC">
+<meta property="profile:first_name" content="Daniel">
+<meta property="profile:last_name" content="Norouzi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daniel Norouzi — Software Developer &amp; UBC Student">
+<meta name="twitter:description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta name="twitter:image" content="https://danielnorouzi.com/Img/og-image.jpg">
+
+<!-- Tells search engines who this site is about -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://danielnorouzi.com/#person",
+      "name": "Daniel Norouzi",
+      "givenName": "Daniel",
+      "familyName": "Norouzi",
+      "url": "https://danielnorouzi.com/",
+      "image": "https://danielnorouzi.com/Img/headshot.jpg",
+      "jobTitle": "Business and Computer Science Student",
+      "description": "Business and Computer Science student at the University of British Columbia building practical software.",
+      "email": "mailto:danynorouzi@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "North Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of British Columbia",
+        "url": "https://www.ubc.ca/"
+      },
+      "knowsAbout": ["Software development", "Java", "JavaScript", "Python", "Data analysis", "Motorsport technology"],
+      "sameAs": [
+        "https://github.com/Danielnorouzi",
+        "https://www.linkedin.com/in/daniel-norouzi-846b021ba/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://danielnorouzi.com/#website",
+      "url": "https://danielnorouzi.com/",
+      "name": "Daniel Norouzi",
+      "publisher": { "@id": "https://danielnorouzi.com/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://danielnorouzi.com/#profile",
+      "url": "https://danielnorouzi.com/",
+      "name": "Daniel Norouzi",
+      "isPartOf": { "@id": "https://danielnorouzi.com/#website" },
+      "mainEntity": { "@id": "https://danielnorouzi.com/#person" }
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/scroll.css">
 <script>
@@ -148,12 +221,12 @@
     </div>
   </section>
 
-  <!-- S3 · BUILDS: the two main projects stack as you scroll -->
+  <!-- S3 · BUILDS: the main projects stack as you scroll -->
   <section id="builds" class="builds" data-section>
     <div class="wrap">
       <div class="sector-label">Sector 03 — Main builds</div>
-      <h2 class="section-title">Two builds on track</h2>
-      <p class="section-intro">One pulls real race data into a season-long championship, the other tries to make managing a day feel less like a chore.</p>
+      <h2 class="section-title">Three builds on track</h2>
+      <p class="section-intro">One pulls real race data into a season-long championship, one tries to make managing a day feel less like a chore, and one turns French Instagram reels into flashcards.</p>
 
       <div class="stack">
         <article class="build-card" style="--i:0; --media-bg:#E3DFD4;">
@@ -196,6 +269,36 @@
               <li>Every task logs itself as completed or missed at midnight, with weekly, monthly and yearly analytics</li>
             </ul>
             <div class="project-links"><a href="projects.html#life-tracker">Read more →</a></div>
+          </div>
+          <div class="build-shade" aria-hidden="true"></div>
+        </article>
+
+        <article class="build-card" style="--i:2; --media-bg:linear-gradient(160deg, #5B57E0, #1A7BF5);">
+          <div class="build-media">
+            <div class="reel-mock" role="img" aria-label="Reel Cards review screen showing the flashcard for aller (to go), found as allait in a reel, with Again, Hard, Good and Easy buttons">
+              <img src="Img/reel-cards-icon.png" alt="" width="256" height="256" class="reel-icon">
+              <div class="reel-card">
+                <span class="reel-src">from the reel: <b>allait</b></span>
+                <span class="reel-word">aller</span>
+                <span class="reel-meaning">verb · to go</span>
+              </div>
+              <div class="reel-grades"><span class="g-again">Again</span><span class="g-hard">Hard</span><span class="g-good">Good</span><span class="g-easy">Easy</span></div>
+            </div>
+          </div>
+          <div class="build-body">
+            <div class="build-head">
+              <span class="build-num">03</span>
+              <span class="status-badge planned">No paid APIs</span>
+            </div>
+            <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>ffmpeg</span><span>·</span><span>PWA</span></div>
+            <h3>Reel Cards</h3>
+            <p>An iPhone web app that reads the French captions in an Instagram reel or screenshot and turns the vocabulary into spaced-repetition flashcards.</p>
+            <ul class="feature-list">
+              <li>ffmpeg pulls a frame every 2 seconds and Tesseract reads the French on screen</li>
+              <li>Words become their dictionary form (allait → aller) with meaning and gender from open dictionaries</li>
+              <li>Offline reviews with SM-2, plus grammar quizzes, vocab decks by level and a conjugation search for about 7,200 verbs</li>
+            </ul>
+            <div class="project-links"><a href="projects.html#reel-cards">Read more →</a><a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub ↗</a></div>
           </div>
           <div class="build-shade" aria-hidden="true"></div>
         </article>
@@ -341,17 +444,6 @@
           <span class="g-note">Private repo</span>
         </article>
 
-        <article class="garage-card">
-          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
-            <rect x="34" y="8" width="56" height="34" rx="4"/>
-            <rect x="26" y="4" width="56" height="34" rx="4" class="front"/>
-            <path d="M38 20H70M38 27H60"/>
-          </svg>
-          <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>PWA</span></div>
-          <h3>Reel Cards</h3>
-          <p>Reads the French captions in an Instagram reel or screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no accounts.</p>
-          <a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </article>
       </div>
     </div>
   </section>

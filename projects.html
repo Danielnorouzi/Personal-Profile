@@ -4,8 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Daniel Norouzi</title>
-<meta name="description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, the Soccer Scout hackathon project, and smaller builds.">
+<meta name="description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, Reel Cards for learning French from Instagram reels, and the Soccer Scout hackathon project.">
+<meta name="author" content="Daniel Norouzi">
+<link rel="canonical" href="https://danielnorouzi.com/projects.html">
 <link rel="icon" type="image/png" href="Img/logo.png">
+<link rel="apple-touch-icon" href="Img/logo.png">
+<meta name="theme-color" content="#0A1628">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daniel Norouzi">
+<meta property="og:title" content="Projects — Daniel Norouzi">
+<meta property="og:description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, Reel Cards for learning French from Instagram reels, and the Soccer Scout hackathon project.">
+<meta property="og:url" content="https://danielnorouzi.com/projects.html">
+<meta property="og:image" content="https://danielnorouzi.com/Img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Daniel Norouzi">
+<meta name="twitter:description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, Reel Cards for learning French from Instagram reels, and the Soccer Scout hackathon project.">
+<meta name="twitter:image" content="https://danielnorouzi.com/Img/og-image.jpg">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -43,7 +59,7 @@
     <div class="wrap">
       <div class="sector-label">Garage</div>
       <h1>Projects</h1>
-      <p>Two main builds in development, a hackathon project, and smaller experiments from the garage.</p>
+      <p>Three main builds, a hackathon project, and smaller experiments from the garage.</p>
     </div>
   </div>
 
@@ -98,6 +114,34 @@
       </article>
 
     </div>
+
+    <div class="full-projects-grid project-grid-tight project-grid-single">
+
+      <!-- Reel Cards -->
+      <article class="project-detail-card project-wide fade-up" id="reel-cards">
+        <div class="project-thumb reel-thumb">
+          <img src="Img/reel-cards-icon.png" alt="Reel Cards app icon: a dog in a beret above a French flashcard" width="256" height="256">
+        </div>
+        <div class="project-body">
+          <div class="project-tag-row">
+            <span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>ffmpeg</span><span>·</span><span>PWA</span>
+          </div>
+          <span class="status-badge planned">No paid APIs</span>
+          <h3 style="margin-top: 14px;">Reel Cards</h3>
+          <p>A personal iPhone web app that reads the French text on screen in an Instagram reel (or a screenshot), picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no LLMs, no accounts.</p>
+          <ul class="feature-list">
+            <li>The server pulls a frame every 2 seconds with ffmpeg and reads the French captions with Tesseract OCR</li>
+            <li>Words are reduced to their dictionary form (allait → aller) with meaning and gender from bundled open dictionaries</li>
+            <li>Cards live on the phone and review offline with SM-2 (Again, Hard, Good, Easy), with Anki CSV export</li>
+            <li>Learn tab: about 4,400 grammar questions from A1 to C1, 2,500 vocab words by level, and conjugations for about 7,200 verbs</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub repo →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 
   <div class="wrap">
@@ -136,7 +180,7 @@
 
   <div class="wrap">
     <div class="sector-label">Side builds</div>
-    <div class="full-projects-grid project-grid-tight">
+    <div class="full-projects-grid project-grid-tight project-grid-3">
 
       <article class="project-detail-card fade-up" id="pitwall">
         <div class="project-body">
@@ -164,14 +208,6 @@
         </div>
       </article>
 
-      <article class="project-detail-card fade-up" id="reel-cards">
-        <div class="project-body">
-          <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>PWA</span></div>
-          <h3>Reel Cards</h3>
-          <p>Reads the French captions in an Instagram reel or screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no accounts.</p>
-          <div class="project-links"><a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub repo →</a></div>
-        </div>
-      </article>
 
     </div>
   </div>
