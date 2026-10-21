@@ -571,6 +571,25 @@ footer {
 .status-badge.planned { background: rgba(91, 107, 130, 0.14); color: var(--steel); }
 .status-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
+.project-grid-tight { padding-top: 0; }
+.project-grid-single { grid-template-columns: 1fr; }
+.project-wide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.project-wide .project-thumb { aspect-ratio: auto; border-bottom: none; border-right: 1px solid var(--border); }
+.project-detail-card .status-badge { align-self: flex-start; }
+@media (max-width: 760px) {
+  .project-wide { grid-template-columns: 1fr; }
+  .project-wide .project-thumb { aspect-ratio: 16/9; border-right: none; border-bottom: 1px solid var(--border); }
+}
+.project-detail-card .project-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.project-detail-card .project-body p { color: var(--text-secondary); font-size: 0.92rem; }
+.project-detail-card .project-body .project-links { margin-top: 16px; }
+.thumb-pitch { width: 70%; height: auto; }
+.thumb-pitch * { fill: none; stroke: var(--steel); stroke-width: 0.8; }
+
 /* ===================== Blog stub ===================== */
 .empty-state {
   text-align: center;

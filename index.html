@@ -4,11 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel Norouzi</title>
-<meta name="description" content="Daniel Norouzi — BUCS student at UBC building practical software, from race-data tools to life-management systems.">
+<meta name="description" content="Daniel Norouzi — BUCS student at UBC building practical software, from race-data tools to life-management systems and hackathon projects.">
 <link rel="icon" type="image/png" href="Img/logo.png">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scroll.css">
+<script>
+  // Turn on the scroll-driven layout before first paint (skipped for reduced motion).
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+</script>
 </head>
 <body>
+
+<div class="lap-progress" aria-hidden="true"><span></span></div>
 
 <div class="ticker">
   <div class="ticker-track">
@@ -31,164 +38,338 @@
       <a href="index.html" class="nav-link active"><span class="tick">01</span>Home</a>
       <a href="projects.html" class="nav-link"><span class="tick">02</span>Projects</a>
       <a href="blog.html" class="nav-link"><span class="tick">03</span>Blog</a>
-      <a href="mailto:danynorouzi@gmail.com" class="nav-link"><span class="tick">04</span>Contact</a>
+      <a href="#finish" class="nav-link"><span class="tick">04</span>Contact</a>
       <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
     </nav>
   </div>
 </header>
 
+<nav class="sector-rail" aria-label="Page sections">
+  <a href="#start"><span class="rail-num">S1</span><span class="rail-name">Start</span></a>
+  <a href="#driver"><span class="rail-num">S2</span><span class="rail-name">Driver</span></a>
+  <a href="#builds"><span class="rail-num">S3</span><span class="rail-name">Builds</span></a>
+  <a href="#hackathons"><span class="rail-num">S4</span><span class="rail-name">Hackathons</span></a>
+  <a href="#garage"><span class="rail-num">S5</span><span class="rail-name">Garage</span></a>
+  <a href="#finish"><span class="rail-num">S6</span><span class="rail-name">Finish</span></a>
+</nav>
+
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-eyebrow">North Vancouver, BC   Lap 2 of 4, UBC BUCS</div>
-      <h1>I am<em> Daniel Norouzi</em>, Business &amp; Computer Science student at UBC</h1>
-      <p class="hero-sub">I'm currently looking for software engineering internships where I can build things people actually rely on.</p>
-      <div class="hero-cta">
-        <a href="projects.html" class="btn btn-primary">View Projects →</a>
-        <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-      </div>
+  <!-- S1 · START: five lights come on as you scroll, then go out -->
+  <section id="start" class="scene scene-start" data-section>
+    <div class="scene-pin">
+      <div class="wrap start-inner">
+        <div class="start-top">
+          <div class="gantry" aria-hidden="true">
+            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
+            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
+            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
+            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
+            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
+          </div>
+          <div class="start-status" aria-hidden="true">Scroll to start the lights</div>
+        </div>
 
-      <div class="stat-strip fade-up">
-        <div class="stat-cell">
-          <span class="sector">YEAR</span>
-          <span class="value">2029</span>
-          <span class="label">Expected graduation</span>
+        <h1 class="start-title">
+          <span class="line line-a">Daniel</span>
+          <span class="line line-b">Norouzi<span class="dot">.</span></span>
+        </h1>
+
+        <div class="start-rest">
+          <p class="start-sub">Business &amp; Computer Science at UBC. I build practical software, from race-data tools to apps that run my day, and I'm looking for software engineering internships.</p>
+          <div class="hero-cta">
+            <a href="#builds" class="btn btn-primary">See the builds ↓</a>
+            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+          </div>
         </div>
-        <div class="stat-cell">
-          <span class="sector">GPA</span>
-          <span class="value">3.7</span>
-          <span class="label">/ 4.3 cumulative</span>
-        </div>
-        <div class="stat-cell">
-          <span class="sector">PROJECTS</span>
-          <span class="value">02</span>
-          <span class="label">In active development</span>
-        </div>
-        <div class="stat-cell">
-          <span class="sector">FOCUS</span>
-          <span class="value">SWE</span>
-          <span class="label">Software engineering</span>
-        </div>
+
+        <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="sector-label">Sector 01: About</div>
-      <div class="about-grid fade-up">
-        <div class="headshot-frame">
-            <img style="margin:0;" src="Img/icon.png" alt="Daniel Norouzi Headshot" />
-        </div>
-        <div class="bio-text">
-          <p>I'm a Business and Computer Science student at the University of British Columbia with a passion for building practical software that solves real world problems.</p>
-          <p>I'm especially interested in software development, data analysis, and motorsports technology, and I enjoy creating projects that combine clean design with meaningful functionality. Right now I'm focused on sharpening my engineering fundamentals and looking for opportunities like testing and software roles, where I can contribute to products that ship to real people.</p>
-          <p>Outside of coding, I enjoy Formula 1, fitness, and constantly learning new technologies that help me grow as a developer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section>
-    <div class="wrap">
-      <div class="sector-label">Sector 02: Toolkit</div>
-      <h2 class="section-title fade-up">What I build with</h2>
-      <div class="skills-grid fade-up">
-        <div class="skill-card">
-          <h3>Languages</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">R</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Frameworks &amp; Libraries</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">React (learning)</span>
-            <span class="skill-tag">Node.js (basic)</span>
-            <span class="skill-tag">Java </span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">IntelliJ IDEA</span>
-            <span class="skill-tag">Figma</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Data &amp; Analysis</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Excel</span>
-            <span class="skill-tag">OpenF1 API</span>
-            <span class="skill-tag">Data Visualization</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Concepts</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">OOP</span>
-            <span class="skill-tag">Data Structures &amp; Algorithms</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Software Design</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Practices</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Version Control</span>
-            <span class="skill-tag">UI/UX Principles</span>
-            <span class="skill-tag">JUnit Testing</span>
+  <!-- S2 · DRIVER: bio lights up word by word -->
+  <section id="driver" class="scene scene-driver" data-section>
+    <div class="scene-pin">
+      <div class="wrap driver-stage">
+        <figure class="portrait">
+          <img src="Img/headshot.jpg" alt="Daniel Norouzi headshot" width="760" height="1056">
+        </figure>
+        <div class="driver-copy">
+          <div class="sector-label">Sector 02 — Driver profile</div>
+          <p class="reveal-text">I'm a Business and Computer Science student at UBC who likes building practical software that solves real problems. I'm drawn to software development, data analysis and motorsport technology, and to projects where clean design meets something genuinely useful. Away from the keyboard it's Formula 1, the gym, and whatever new tool I'm learning that week.</p>
+          <div class="stat-strip">
+            <div class="stat-cell">
+              <span class="sector">YEAR</span>
+              <span class="value">2029</span>
+              <span class="label">Expected graduation</span>
+            </div>
+            <div class="stat-cell">
+              <span class="sector">GPA</span>
+              <span class="value">3.7</span>
+              <span class="label">/ 4.3 cumulative</span>
+            </div>
+            <div class="stat-cell">
+              <span class="sector">BUILDS</span>
+              <span class="value">07</span>
+              <span class="label">Projects &amp; hackathons</span>
+            </div>
+            <div class="stat-cell">
+              <span class="sector">FOCUS</span>
+              <span class="value">SWE</span>
+              <span class="label">Software engineering</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECT PREVIEW -->
-  <section class="section-alt">
+  <!-- TOOLKIT: rows slide in opposite directions with scroll -->
+  <section class="toolkit" aria-labelledby="toolkit-title">
     <div class="wrap">
-      <div class="sector-label">Sector 03 — Projects</div>
-      <h2 class="section-title fade-up">Currently on track</h2>
-      <p class="section-intro fade-up">Two builds in progress one pulling real race data, one trying to make managing daily life feel less like a chore.</p>
+      <div class="sector-label">Toolkit</div>
+      <h2 class="section-title" id="toolkit-title">What I build with</h2>
+      <ul class="sr-only">
+        <li>Java</li><li>C++</li><li>JavaScript</li><li>Python</li><li>HTML &amp; CSS</li><li>R</li>
+        <li>React (learning)</li><li>Node.js (basic)</li><li>Git / GitHub</li><li>JUnit</li><li>IntelliJ IDEA</li><li>Figma</li><li>REST APIs</li><li>OOP</li><li>Data structures &amp; algorithms</li>
+      </ul>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-row row-a">
+        <span>Java</span><span>C++</span><span>JavaScript</span><span>Python</span><span>HTML &amp; CSS</span><span>R</span>
+        <span>Java</span><span>C++</span><span>JavaScript</span><span>Python</span><span>HTML &amp; CSS</span><span>R</span>
+      </div>
+      <div class="marquee-row row-b">
+        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span><span>OOP</span><span>DSA</span>
+        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span><span>OOP</span><span>DSA</span>
+      </div>
+    </div>
+  </section>
 
-      <div class="project-preview-grid fade-up">
-        <div class="project-card">
-          <div class="project-thumb">
-                <img style="margin:0;" src="Img/project1.png" alt="Daniel Norouzi First Project F1 stats" />
+  <!-- S3 · BUILDS: the two main projects stack as you scroll -->
+  <section id="builds" class="builds" data-section>
+    <div class="wrap">
+      <div class="sector-label">Sector 03 — Main builds</div>
+      <h2 class="section-title">Two builds on track</h2>
+      <p class="section-intro">One pulls real race data into a season-long championship, the other tries to make managing a day feel less like a chore.</p>
+
+      <div class="stack">
+        <article class="build-card" style="--i:0; --media-bg:#E3DFD4;">
+          <div class="build-media">
+            <img src="Img/f1-car.jpg" alt="Formula 1 car silhouette, F1 Season Tracker artwork" width="1500" height="750" class="contain">
           </div>
-          <div class="project-body">
-            <div class="project-tag-row"><span>Java</span><span>·</span><span>·</span><span>In Progress</span></div>
+          <div class="build-body">
+            <div class="build-head">
+              <span class="build-num">01</span>
+              <span class="status-badge in-progress">In progress</span>
+            </div>
+            <div class="project-tag-row"><span>Java</span><span>·</span><span>Swing</span><span>·</span><span>JUnit</span></div>
             <h3>F1 Season Tracker</h3>
-            <p>An object-oriented desktop app that records race results, updates driver and constructor standings, and displays championship progress through a live GUI.</p>
-            <div class="project-links">
-              <a href="projects.html#f1-tracker">Read more →</a>
-            </div>
+            <p>An object-oriented desktop app that follows a full Formula 1 season race by race.</p>
+            <ul class="feature-list">
+              <li>Records race results and updates driver and constructor standings automatically</li>
+              <li>Shows live championship progress in a built-in GUI</li>
+              <li>Saves season data so it carries over between sessions, tested with JUnit throughout</li>
+            </ul>
+            <div class="project-links"><a href="projects.html#f1-tracker">Read more →</a></div>
           </div>
-        </div>
+          <div class="build-shade" aria-hidden="true"></div>
+        </article>
 
-        <div class="project-card">
-          <div class="project-thumb">
-                 <img style="margin:0;" src="Img/project2.png" alt="Daniel Norouzi life tracker" />
+        <article class="build-card" style="--i:1; --media-bg:#0E0E0F;">
+          <div class="build-media">
+            <img src="Img/daily.jpg" alt="Screenshot of the Daily app showing routines and today's task lists" width="1600" height="835" class="cover-left">
           </div>
-          <div class="project-body">
-            <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>In Progress</span></div>
-            <h3>Life Tracker (Calendar &amp; Tasks)</h3>
-            <p>A calendar app that organizes tasks into groups, aiming to make managing daily life feel as motivating as leveling up in a game.</p>
-            <div class="project-links">
-              <a href="projects.html#life-tracker">Read more →</a>
+          <div class="build-body">
+            <div class="build-head">
+              <span class="build-num">02</span>
+              <span class="status-badge in-progress">In progress</span>
             </div>
+            <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>HTML</span><span>·</span><span>CSS</span></div>
+            <h3>Daily (Life Tracker)</h3>
+            <p>A productivity tracker built around one question: do you have enough time today?</p>
+            <ul class="feature-list">
+              <li>Task lists with recurring schedules, plus AM, midday and PM routines</li>
+              <li>Green, yellow or red time status compares what's planned with what's left of your day</li>
+              <li>Every task logs itself as completed or missed at midnight, with weekly, monthly and yearly analytics</li>
+            </ul>
+            <div class="project-links"><a href="projects.html#life-tracker">Read more →</a></div>
+          </div>
+          <div class="build-shade" aria-hidden="true"></div>
+        </article>
+        <div class="stack-end" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 · HACKATHONS: pinned, scrolls sideways -->
+  <section id="hackathons" class="hscroll" data-section>
+    <div class="hscroll-pin">
+      <div class="wrap hscroll-head">
+        <div>
+          <div class="sector-label">Sector 04 — Hackathons</div>
+          <h2 class="section-title">Built against the clock</h2>
+        </div>
+        <div class="hscroll-count" aria-hidden="true"><span class="count-now">01</span> / <span class="count-total">05</span></div>
+      </div>
+
+      <div class="hscroll-track">
+        <article class="hpanel hpanel-intro">
+          <div class="hp-eyebrow">HelloHack 2026 · Team project</div>
+          <h3 class="hp-title">Soccer Scout</h3>
+          <p>Search for a professional player, see a data-driven breakdown of how they play, get a training plan to build the same abilities, then practise in front of a live coach that checks your form.</p>
+          <div class="hp-tags"><span>React</span><span>FastAPI</span><span>Python</span><span>MediaPipe</span><span>OpenAI</span></div>
+          <a class="hp-link" href="https://github.com/Danielnorouzi/HelloHackathon" target="_blank" rel="noopener">GitHub repo ↗</a>
+          <div class="hp-hint" aria-hidden="true">Keep scrolling →</div>
+        </article>
+
+        <article class="hpanel">
+          <div class="hp-step">01 · Scout</div>
+          <svg class="pitch hp-visual" viewBox="-4 -4 128 88" role="img" aria-label="Football pitch drawn on StatsBomb's 120 by 80 grid, with an illustrative shot map">
+            <path class="draw" pathLength="1" d="M0 0H120V80H0Z"/>
+            <path class="draw" pathLength="1" d="M60 0V80"/>
+            <path class="draw" pathLength="1" d="M60 30A10 10 0 1 1 60 50A10 10 0 1 1 60 30"/>
+            <path class="draw" pathLength="1" d="M0 18H18V62H0"/>
+            <path class="draw" pathLength="1" d="M120 18H102V62H120"/>
+            <path class="draw" pathLength="1" d="M0 30H6V50H0"/>
+            <path class="draw" pathLength="1" d="M120 30H114V50H120"/>
+            <path class="draw" pathLength="1" d="M18 32.7A10 10 0 0 1 18 47.3"/>
+            <path class="draw" pathLength="1" d="M102 32.7A10 10 0 0 0 102 47.3"/>
+            <g class="shots">
+              <circle cx="108" cy="38" r="1.8"/><circle cx="104" cy="44" r="1.4"/><circle cx="110" cy="46" r="2.2" class="goal"/>
+              <circle cx="97" cy="35" r="1.4"/><circle cx="112" cy="41" r="2.2" class="goal"/><circle cx="100" cy="50" r="1.2"/>
+              <circle cx="94" cy="42" r="1.6"/><circle cx="106" cy="31" r="1.2"/>
+            </g>
+          </svg>
+          <p class="hp-copy">Event data from StatsBomb Open Data: 930 matches preloaded and turned into per-90 stats and percentiles for 6,567 player-seasons.</p>
+          <div class="hp-caption">Pitch on StatsBomb's 120 × 80 grid · illustrative shots</div>
+        </article>
+
+        <article class="hpanel">
+          <div class="hp-step">02 · Rate</div>
+          <ul class="criteria hp-visual">
+            <li class="measured"><b>SHO</b><span class="bar"><i></i></span><em>measured</em></li>
+            <li class="measured"><b>PAS</b><span class="bar"><i></i></span><em>measured</em></li>
+            <li class="measured"><b>DRI</b><span class="bar"><i></i></span><em>measured</em></li>
+            <li class="measured"><b>DEF</b><span class="bar"><i></i></span><em>measured</em></li>
+            <li class="missing"><b>PAC</b><span class="bar"><i></i></span><em>needs tracking data</em></li>
+            <li class="missing"><b>PHY</b><span class="bar"><i></i></span><em>needs tracking data</em></li>
+          </ul>
+          <p class="hp-copy">Every card rating is measured from source data, estimated from players in the same position group, or marked unavailable. Nothing is invented to fill a gap.</p>
+        </article>
+
+        <article class="hpanel">
+          <div class="hp-step">03 · Train</div>
+          <ol class="week hp-visual">
+            <li class="train"><b>D1</b>Train</li>
+            <li class="rest"><b>D2</b>Rest</li>
+            <li class="train"><b>D3</b>Train</li>
+            <li class="train"><b>D4</b>Train</li>
+            <li class="rest"><b>D5</b>Rest</li>
+            <li class="train"><b>D6</b>Train</li>
+            <li class="test"><b>D7</b>Test</li>
+          </ol>
+          <p class="hp-copy">Code finds your two or three biggest gaps and lays out the training days, rest days and a day-7 re-test. The AI writes each session, checked against your equipment and time.</p>
+          <div class="hp-caption">Example week · D7 is the re-test</div>
+        </article>
+
+        <article class="hpanel">
+          <div class="hp-step">04 · Live coach</div>
+          <svg class="pose hp-visual" viewBox="0 0 120 120" role="img" aria-label="Stick figure striking a ball, showing tracked body landmarks">
+            <path class="draw" pathLength="1" d="M58 30L56 52"/>
+            <path class="draw" pathLength="1" d="M58 34L44 44L36 56"/>
+            <path class="draw" pathLength="1" d="M58 34L72 40L82 34"/>
+            <path class="draw" pathLength="1" d="M56 52L50 74L48 98"/>
+            <path class="draw" pathLength="1" d="M56 52L72 66L88 76"/>
+            <path class="draw ground" pathLength="1" d="M20 102H104"/>
+            <g class="joints">
+              <circle cx="59" cy="22" r="6"/>
+              <circle cx="58" cy="34" r="2"/><circle cx="44" cy="44" r="2"/><circle cx="36" cy="56" r="2"/>
+              <circle cx="72" cy="40" r="2"/><circle cx="82" cy="34" r="2"/><circle cx="56" cy="52" r="2"/>
+              <circle cx="50" cy="74" r="2"/><circle cx="48" cy="98" r="2"/><circle cx="72" cy="66" r="2"/><circle cx="88" cy="76" r="2"/>
+            </g>
+            <circle class="ball" cx="96" cy="80" r="5"/>
+          </svg>
+          <p class="hp-copy">Pose tracking (33 body landmarks) and ball detection run entirely in the browser, then short spoken hints help you fix your shooting or dribbling form.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 · GARAGE: more builds tilt into place -->
+  <section id="garage" class="garage" data-section>
+    <div class="wrap">
+      <div class="sector-label">Sector 05 — Garage</div>
+      <h2 class="section-title">More from the garage</h2>
+      <p class="section-intro">Smaller builds and experiments, mostly scratching my own itch.</p>
+
+      <div class="garage-grid">
+        <article class="garage-card">
+          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
+            <polyline points="0,30 15,26 30,28 45,20 60,22 75,14 90,18 105,10 120,12"/>
+            <polyline points="0,38 15,36 30,30 45,32 60,28 75,30 90,24 105,26 120,20"/>
+            <polyline points="0,20 15,22 30,16 45,18 60,12 75,16 90,8 105,12 120,6"/>
+          </svg>
+          <div class="project-tag-row"><span>Python</span><span>·</span><span>FastF1</span><span>·</span><span>Streamlit</span></div>
+          <h3>PitWall</h3>
+          <p>Fetches every lap and sector time for a driver in a chosen race and turns it into charts, including a gap delta between two drivers.</p>
+          <a href="https://github.com/Danielnorouzi/PitWall" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </article>
+
+        <article class="garage-card">
+          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
+            <path d="M8 40C30 6 70 0 112 14"/>
+            <circle cx="8" cy="40" r="2.5"/><circle cx="34" cy="16" r="2.5"/><circle cx="62" cy="6" r="2.5"/><circle cx="90" cy="7" r="2.5"/><circle cx="112" cy="14" r="2.5"/>
+          </svg>
+          <div class="project-tag-row"><span>Next.js</span><span>·</span><span>TypeScript</span><span>·</span><span>MediaPipe</span></div>
+          <h3>Rally AI</h3>
+          <p>A tennis coach in your browser. It tracks your strokes through the camera on your device, gives cues while you practise and writes a report with drills afterwards.</p>
+          <a href="https://github.com/Danielnorouzi/tennis-trainer" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </article>
+
+        <article class="garage-card">
+          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
+            <path d="M60 2V46M38 12L82 36M38 36L82 12"/>
+            <path d="M60 10L74 17V31L60 38L46 31V17Z"/>
+            <path d="M60 18L67 21V27L60 30L53 27V21Z"/>
+          </svg>
+          <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>PWA</span></div>
+          <h3>FOCUS</h3>
+          <p>A study timer that spins a web thread by thread while you focus. In strict mode, leaving the app breaks the web. Every session goes into an archive with streaks and stats.</p>
+          <span class="g-note">Private repo</span>
+        </article>
+
+        <article class="garage-card">
+          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
+            <rect x="34" y="8" width="56" height="34" rx="4"/>
+            <rect x="26" y="4" width="56" height="34" rx="4" class="front"/>
+            <path d="M38 20H70M38 27H60"/>
+          </svg>
+          <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>PWA</span></div>
+          <h3>Reel Cards</h3>
+          <p>Reads the French captions in an Instagram reel or screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no accounts.</p>
+          <a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 · FINISH: chequered flag and contact -->
+  <section id="finish" class="scene scene-finish" data-section>
+    <div class="scene-pin">
+      <div class="chequer" aria-hidden="true"></div>
+      <div class="wrap finish-inner">
+        <div class="sector-label">Sector 06 — Finish line</div>
+        <h2 class="finish-title">Let's build something.</h2>
+        <div class="finish-rest">
+          <p class="finish-sub">I'm looking for software engineering, testing and data internships where I can ship work people rely on. The fastest way to reach me is email.</p>
+          <a class="finish-email" href="mailto:danynorouzi@gmail.com">danynorouzi@gmail.com</a>
+          <div class="hero-cta">
+            <a href="mailto:danynorouzi@gmail.com" class="btn btn-primary">Email me →</a>
+            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
           </div>
         </div>
       </div>
@@ -212,5 +393,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/scroll.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Daniel Norouzi</title>
-<meta name="description" content="Projects by Daniel Norouzi: an F1 season tracker built in Java, and a gamified life-management calendar app.">
+<meta name="description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, the Soccer Scout hackathon project, and smaller builds.">
 <link rel="icon" type="image/png" href="Img/logo.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -43,7 +43,7 @@
     <div class="wrap">
       <div class="sector-label">Garage</div>
       <h1>Projects</h1>
-      <p>Two builds currently in development both works in progress, with more being added as they come together.</p>
+      <p>Two main builds in development, a hackathon project, and smaller experiments from the garage.</p>
     </div>
   </div>
 
@@ -94,6 +94,82 @@
           <div class="project-links">
             <a href="https://github.com/Danielnorouzi/To-do-List" target="_blank" rel="noopener">GitHub repo →</a>
           </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sector-label">Hackathons</div>
+    <div class="full-projects-grid project-grid-tight project-grid-single">
+
+      <!-- Soccer Scout / HelloHack 2026 -->
+      <article class="project-detail-card project-wide fade-up" id="soccer-scout">
+        <div class="project-thumb">
+          <svg class="thumb-pitch" viewBox="-4 -4 128 88" role="img" aria-label="Football pitch outline">
+            <path d="M0 0H120V80H0Z M60 0V80 M0 18H18V62H0 M120 18H102V62H120 M0 30H6V50H0 M120 30H114V50H120"/>
+            <circle cx="60" cy="40" r="10"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-tag-row">
+            <span>React</span><span>·</span><span>FastAPI</span><span>·</span><span>MediaPipe</span><span>·</span><span>OpenAI</span>
+          </div>
+          <span class="status-badge complete">HelloHack 2026</span>
+          <h3 style="margin-top: 14px;">Soccer Scout</h3>
+          <p>Our team project for HelloHack 2026. Search for a professional player, see a data-driven breakdown of how they play, get a training plan to build the same abilities, then practise in front of a live coach.</p>
+          <ul class="feature-list">
+            <li>StatsBomb Open Data: 930 matches preloaded into per-90 stats and percentiles for 6,567 player-seasons</li>
+            <li>Card ratings are measured, estimated from the player's position group, or marked unavailable</li>
+            <li>Training plans target your two or three biggest gaps and end with a day-7 re-test</li>
+            <li>Live coach runs pose tracking and ball detection in the browser and gives spoken hints</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/Danielnorouzi/HelloHackathon" target="_blank" rel="noopener">GitHub repo →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sector-label">Side builds</div>
+    <div class="full-projects-grid project-grid-tight">
+
+      <article class="project-detail-card fade-up" id="pitwall">
+        <div class="project-body">
+          <div class="project-tag-row"><span>Python</span><span>·</span><span>FastF1</span><span>·</span><span>Streamlit</span></div>
+          <h3>PitWall</h3>
+          <p>Fetches every lap and sector time for a driver in a chosen race and turns it into charts, including a gap delta between two drivers.</p>
+          <div class="project-links"><a href="https://github.com/Danielnorouzi/PitWall" target="_blank" rel="noopener">GitHub repo →</a></div>
+        </div>
+      </article>
+
+      <article class="project-detail-card fade-up" id="rally-ai">
+        <div class="project-body">
+          <div class="project-tag-row"><span>Next.js</span><span>·</span><span>TypeScript</span><span>·</span><span>MediaPipe</span></div>
+          <h3>Rally AI</h3>
+          <p>A tennis coach in your browser. It tracks your strokes through the camera on your device, gives cues while you practise and writes a report with drills afterwards.</p>
+          <div class="project-links"><a href="https://github.com/Danielnorouzi/tennis-trainer" target="_blank" rel="noopener">GitHub repo →</a></div>
+        </div>
+      </article>
+
+      <article class="project-detail-card fade-up" id="focus">
+        <div class="project-body">
+          <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>PWA</span></div>
+          <h3>FOCUS</h3>
+          <p>A study timer that spins a web thread by thread while you focus. In strict mode, leaving the app breaks the web. Every session goes into an archive with streaks and stats.</p>
+        </div>
+      </article>
+
+      <article class="project-detail-card fade-up" id="reel-cards">
+        <div class="project-body">
+          <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>PWA</span></div>
+          <h3>Reel Cards</h3>
+          <p>Reads the French captions in an Instagram reel or screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no accounts.</p>
+          <div class="project-links"><a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub repo →</a></div>
         </div>
       </article>
 
