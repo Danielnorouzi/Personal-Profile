@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Norouzi — Software Developer &amp; UBC Student</title>
-<meta name="description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Daniel Norouzi | Software Developer and UBC Student</title>
+<meta name="description" content="Daniel Norouzi is a Business and Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards for learning French.">
 <meta name="author" content="Daniel Norouzi">
 <link rel="canonical" href="https://danielnorouzi.com/">
 <link rel="icon" type="image/png" href="Img/logo.png">
 <link rel="apple-touch-icon" href="Img/logo.png">
-<meta name="theme-color" content="#0A1628">
+<meta name="theme-color" content="#07111F">
 
 <!-- Link previews (LinkedIn, iMessage, Slack, X) -->
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Daniel Norouzi">
-<meta property="og:title" content="Daniel Norouzi — Software Developer &amp; UBC Student">
-<meta property="og:description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta property="og:title" content="Daniel Norouzi | Software Developer and UBC Student">
+<meta property="og:description" content="Daniel Norouzi is a Business and Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards for learning French.">
 <meta property="og:url" content="https://danielnorouzi.com/">
 <meta property="og:image" content="https://danielnorouzi.com/Img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Daniel Norouzi, Business &amp; Computer Science at UBC">
+<meta property="og:image:alt" content="Daniel Norouzi, Business and Computer Science at UBC">
 <meta property="profile:first_name" content="Daniel">
 <meta property="profile:last_name" content="Norouzi">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Daniel Norouzi — Software Developer &amp; UBC Student">
-<meta name="twitter:description" content="Daniel Norouzi is a Business &amp; Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards and hackathon projects.">
+<meta name="twitter:title" content="Daniel Norouzi | Software Developer and UBC Student">
+<meta name="twitter:description" content="Daniel Norouzi is a Business and Computer Science student at UBC building practical software, from an F1 season tracker to Reel Cards for learning French.">
 <meta name="twitter:image" content="https://danielnorouzi.com/Img/og-image.jpg">
 
 <!-- Tells search engines who this site is about -->
@@ -79,134 +79,106 @@
   ]
 }
 </script>
+
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/scroll.css">
+<link rel="stylesheet" href="css/home.css">
 <script>
-  // Turn on the scroll-driven layout before first paint (skipped for reduced motion).
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+  // Decide before first paint: animated layout, and whether the opening plays this visit.
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.classList.add('motion');
+    try { if (!sessionStorage.getItem('intro-seen')) d.classList.add('intro-on'); }
+    catch (e) { d.classList.add('intro-on'); }
+  })();
 </script>
 </head>
 <body>
 
-<div class="lap-progress" aria-hidden="true"><span></span></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<div class="ticker">
-  <div class="ticker-track">
-    <span>SECTOR 1 — BUSINESS &amp; COMPUTER SCIENCE, UBC</span>
-    <span>SECTOR 2 — JAVA · JAVASCRIPT · C++</span>
-    <span>SECTOR 3 — TARGET: SOFTWARE ENGINEERING</span>
-    <span>STATUS — OPEN TO 2026 INTERNSHIPS</span>
-    <span>SECTOR 1 — BUSINESS &amp; COMPUTER SCIENCE, UBC</span>
-    <span>SECTOR 2 — JAVA · JAVASCRIPT · C++</span>
-    <span>SECTOR 3 — TARGET: SOFTWARE ENGINEERING</span>
-    <span>STATUS — OPEN TO 2026 INTERNSHIPS</span>
+<!-- Opening: five lights, lights out, the curtain opens -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-curtain intro-top"></div>
+  <div class="intro-curtain intro-bottom"></div>
+  <div class="intro-gantry">
+    <span class="lamp-col"><i></i><i></i></span>
+    <span class="lamp-col"><i></i><i></i></span>
+    <span class="lamp-col"><i></i><i></i></span>
+    <span class="lamp-col"><i></i><i></i></span>
+    <span class="lamp-col"><i></i><i></i></span>
   </div>
 </div>
 
 <header class="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="logo">Daniel<span>.</span>Norouzi</a>
-    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">MENU ☰</button>
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link active"><span class="tick">01</span>Home</a>
-      <a href="projects.html" class="nav-link"><span class="tick">02</span>Projects</a>
-      <a href="blog.html" class="nav-link"><span class="tick">03</span>Blog</a>
-      <a href="#finish" class="nav-link"><span class="tick">04</span>Contact</a>
-      <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <a href="index.html" class="logo">Daniel Norouzi</a>
+    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="main-nav" id="site-nav" aria-label="Main">
+      <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">☾</button>
     </nav>
   </div>
+  <div class="lap" aria-hidden="true"><span></span></div>
 </header>
 
-<nav class="sector-rail" aria-label="Page sections">
-  <a href="#start"><span class="rail-num">S1</span><span class="rail-name">Start</span></a>
-  <a href="#driver"><span class="rail-num">S2</span><span class="rail-name">Driver</span></a>
-  <a href="#builds"><span class="rail-num">S3</span><span class="rail-name">Builds</span></a>
-  <a href="#hackathons"><span class="rail-num">S4</span><span class="rail-name">Hackathons</span></a>
-  <a href="#garage"><span class="rail-num">S5</span><span class="rail-name">Garage</span></a>
-  <a href="#finish"><span class="rail-num">S6</span><span class="rail-name">Finish</span></a>
-</nav>
+<main id="main">
 
-<main>
-
-  <!-- S1 · START: five lights come on as you scroll, then go out -->
-  <section id="start" class="scene scene-start" data-section>
-    <div class="scene-pin">
-      <div class="wrap start-inner">
-        <div class="start-top">
-          <div class="gantry" aria-hidden="true">
-            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
-            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
-            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
-            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
-            <span class="gantry-col"><i class="lamp"></i><i class="lamp"></i></span>
-          </div>
-          <div class="start-status" aria-hidden="true">Scroll to start the lights</div>
+  <!-- Hero: the name over an ASCII portrait -->
+  <section class="hero night" data-night aria-labelledby="hero-name">
+    <div class="hero-art" aria-hidden="true">
+      <img class="hero-photo" src="Img/headshot.jpg" alt="" width="760" height="1056" fetchpriority="high">
+      <canvas class="hero-ascii"></canvas>
+    </div>
+    <div class="wrap hero-inner">
+      <h1 class="hero-name" id="hero-name">
+        <span class="line"><span>Daniel</span></span>
+        <span class="line"><span>Norouzi</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-role">Business and Computer Science at UBC. I build practical software, from race data tools to apps that run my day.</p>
+        <div class="cta-row">
+          <a href="#builds" class="btn btn-light">See my builds</a>
+          <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-outline-light">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn <span class="ext" aria-hidden="true">↗</span></a>
         </div>
-
-        <h1 class="start-title">
-          <span class="line line-a">Daniel</span>
-          <span class="line line-b">Norouzi<span class="dot">.</span></span>
-        </h1>
-
-        <div class="start-rest">
-          <p class="start-sub">Business &amp; Computer Science at UBC. I build practical software, from race-data tools to apps that run my day, and I'm looking for software engineering internships.</p>
-          <div class="hero-cta">
-            <a href="#builds" class="btn btn-primary">See the builds ↓</a>
-            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-          </div>
-        </div>
-
-        <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
       </div>
     </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- S2 · DRIVER: bio lights up word by word -->
-  <section id="driver" class="scene scene-driver" data-section>
-    <div class="scene-pin">
-      <div class="wrap driver-stage">
-        <figure class="portrait">
-          <img src="Img/headshot.jpg" alt="Daniel Norouzi headshot" width="760" height="1056">
+  <!-- About: the photo develops out of the ASCII while the bio lights up -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-pin">
+      <div class="wrap about-stage">
+        <figure class="about-photo">
+          <img src="Img/headshot.jpg" alt="Daniel Norouzi" width="760" height="1056">
+          <canvas class="about-ascii" aria-hidden="true"></canvas>
         </figure>
-        <div class="driver-copy">
-          <div class="sector-label">Sector 02 — Driver profile</div>
+        <div class="about-copy">
+          <h2 class="label" id="about-title">About</h2>
           <p class="reveal-text">I'm a Business and Computer Science student at UBC who likes building practical software that solves real problems. I'm drawn to software development, data analysis and motorsport technology, and to projects where clean design meets something genuinely useful. Away from the keyboard it's Formula 1, the gym, and whatever new tool I'm learning that week.</p>
-          <div class="stat-strip">
-            <div class="stat-cell">
-              <span class="sector">YEAR</span>
-              <span class="value">2029</span>
-              <span class="label">Expected graduation</span>
-            </div>
-            <div class="stat-cell">
-              <span class="sector">GPA</span>
-              <span class="value">3.7</span>
-              <span class="label">/ 4.3 cumulative</span>
-            </div>
-            <div class="stat-cell">
-              <span class="sector">BUILDS</span>
-              <span class="value">07</span>
-              <span class="label">Projects &amp; hackathons</span>
-            </div>
-            <div class="stat-cell">
-              <span class="sector">FOCUS</span>
-              <span class="value">SWE</span>
-              <span class="label">Software engineering</span>
-            </div>
-          </div>
+          <dl class="facts">
+            <div><dt>Graduating</dt><dd>2029</dd></div>
+            <div><dt>GPA</dt><dd>3.7<span> / 4.3</span></dd></div>
+            <div><dt>Based in</dt><dd>North Vancouver</dd></div>
+          </dl>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TOOLKIT: rows slide in opposite directions with scroll -->
+  <!-- Toolkit: two rows that slide against each other -->
   <section class="toolkit" aria-labelledby="toolkit-title">
     <div class="wrap">
-      <div class="sector-label">Toolkit</div>
       <h2 class="section-title" id="toolkit-title">What I build with</h2>
       <ul class="sr-only">
-        <li>Java</li><li>C++</li><li>JavaScript</li><li>Python</li><li>HTML &amp; CSS</li><li>R</li>
-        <li>React (learning)</li><li>Node.js (basic)</li><li>Git / GitHub</li><li>JUnit</li><li>IntelliJ IDEA</li><li>Figma</li><li>REST APIs</li><li>OOP</li><li>Data structures &amp; algorithms</li>
+        <li>Java</li><li>C++</li><li>JavaScript</li><li>Python</li><li>HTML and CSS</li><li>R</li>
+        <li>React (learning)</li><li>Node.js (basic)</li><li>Git and GitHub</li><li>JUnit</li><li>REST APIs</li><li>Figma</li>
       </ul>
     </div>
     <div class="marquee" aria-hidden="true">
@@ -215,256 +187,124 @@
         <span>Java</span><span>C++</span><span>JavaScript</span><span>Python</span><span>HTML &amp; CSS</span><span>R</span>
       </div>
       <div class="marquee-row row-b">
-        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span><span>OOP</span><span>DSA</span>
-        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span><span>OOP</span><span>DSA</span>
+        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span>
+        <span>Git</span><span>JUnit</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>Figma</span>
       </div>
     </div>
   </section>
 
-  <!-- S3 · BUILDS: the main projects stack as you scroll -->
-  <section id="builds" class="builds" data-section>
+  <!-- Builds: the main projects stack as you scroll -->
+  <section class="builds" id="builds" aria-labelledby="builds-title">
     <div class="wrap">
-      <div class="sector-label">Sector 03 — Main builds</div>
-      <h2 class="section-title">Three builds on track</h2>
-      <p class="section-intro">One pulls real race data into a season-long championship, one tries to make managing a day feel less like a chore, and one turns French Instagram reels into flashcards.</p>
+      <h2 class="section-title" id="builds-title">Three builds on track</h2>
+      <p class="section-intro">One pulls real race data into a season-long championship, one makes managing a day feel less like a chore, and one turns French Instagram reels into flashcards.</p>
 
       <div class="stack">
-        <article class="build-card" style="--i:0; --media-bg:#E3DFD4;">
-          <div class="build-media">
-            <img src="Img/f1-car.jpg" alt="Formula 1 car silhouette, F1 Season Tracker artwork" width="1500" height="750" class="contain">
+        <article class="build-card" style="--i:0;">
+          <div class="build-media" style="--media-bg:#E3DFD4;">
+            <img src="Img/f1-car.jpg" alt="Formula 1 car silhouette, artwork for the F1 Season Tracker" width="1500" height="750" class="contain" loading="lazy">
           </div>
           <div class="build-body">
-            <div class="build-head">
-              <span class="build-num">01</span>
-              <span class="status-badge in-progress">In progress</span>
+            <div class="project-head">
+              <p class="tech">Java, Swing, JUnit</p>
+              <span class="status-badge">In progress</span>
             </div>
-            <div class="project-tag-row"><span>Java</span><span>·</span><span>Swing</span><span>·</span><span>JUnit</span></div>
             <h3>F1 Season Tracker</h3>
             <p>An object-oriented desktop app that follows a full Formula 1 season race by race.</p>
             <ul class="feature-list">
               <li>Records race results and updates driver and constructor standings automatically</li>
               <li>Shows live championship progress in a built-in GUI</li>
-              <li>Saves season data so it carries over between sessions, tested with JUnit throughout</li>
+              <li>Saves season data between sessions, tested with JUnit throughout</li>
             </ul>
-            <div class="project-links"><a href="projects.html#f1-tracker">Read more →</a></div>
+            <div class="project-links"><a href="projects.html#f1-tracker">Read more</a></div>
           </div>
           <div class="build-shade" aria-hidden="true"></div>
         </article>
 
-        <article class="build-card" style="--i:1; --media-bg:#0E0E0F;">
-          <div class="build-media">
-            <img src="Img/daily.jpg" alt="Screenshot of the Daily app showing routines and today's task lists" width="1600" height="835" class="cover-left">
+        <article class="build-card" style="--i:1;">
+          <div class="build-media" style="--media-bg:#0E0E0F;">
+            <img src="Img/daily.jpg" alt="The Daily app showing routines and today's task lists" width="1600" height="835" class="cover-left" loading="lazy">
           </div>
           <div class="build-body">
-            <div class="build-head">
-              <span class="build-num">02</span>
-              <span class="status-badge in-progress">In progress</span>
+            <div class="project-head">
+              <p class="tech">JavaScript, HTML, CSS</p>
+              <span class="status-badge">In progress</span>
             </div>
-            <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>HTML</span><span>·</span><span>CSS</span></div>
             <h3>Daily (Life Tracker)</h3>
             <p>A productivity tracker built around one question: do you have enough time today?</p>
             <ul class="feature-list">
-              <li>Task lists with recurring schedules, plus AM, midday and PM routines</li>
-              <li>Green, yellow or red time status compares what's planned with what's left of your day</li>
-              <li>Every task logs itself as completed or missed at midnight, with weekly, monthly and yearly analytics</li>
+              <li>Task lists with recurring schedules, plus morning, midday and evening routines</li>
+              <li>A green, yellow or red status compares what's planned with what's left of your day</li>
+              <li>Tasks log themselves as done or missed at midnight, with weekly, monthly and yearly charts</li>
             </ul>
-            <div class="project-links"><a href="projects.html#life-tracker">Read more →</a></div>
+            <div class="project-links"><a href="projects.html#life-tracker">Read more</a></div>
           </div>
           <div class="build-shade" aria-hidden="true"></div>
         </article>
 
-        <article class="build-card" style="--i:2; --media-bg:linear-gradient(160deg, #5B57E0, #1A7BF5);">
-          <div class="build-media">
+        <article class="build-card" style="--i:2;">
+          <div class="build-media" style="--media-bg:linear-gradient(160deg, #5B57E0, #1A7BF5);">
             <div class="reel-mock" role="img" aria-label="Reel Cards review screen showing the flashcard for aller (to go), found as allait in a reel, with Again, Hard, Good and Easy buttons">
-              <img src="Img/reel-cards-icon.png" alt="" width="256" height="256" class="reel-icon">
+              <img src="Img/reel-cards-icon.png" alt="" width="256" height="256" class="reel-icon" loading="lazy">
               <div class="reel-card">
                 <span class="reel-src">from the reel: <b>allait</b></span>
                 <span class="reel-word">aller</span>
-                <span class="reel-meaning">verb · to go</span>
+                <span class="reel-meaning">verb, to go</span>
               </div>
               <div class="reel-grades"><span class="g-again">Again</span><span class="g-hard">Hard</span><span class="g-good">Good</span><span class="g-easy">Easy</span></div>
             </div>
           </div>
           <div class="build-body">
-            <div class="build-head">
-              <span class="build-num">03</span>
+            <div class="project-head">
+              <p class="tech">Node.js, Tesseract OCR, ffmpeg</p>
               <span class="status-badge planned">No paid APIs</span>
             </div>
-            <div class="project-tag-row"><span>Node.js</span><span>·</span><span>Tesseract OCR</span><span>·</span><span>ffmpeg</span><span>·</span><span>PWA</span></div>
             <h3>Reel Cards</h3>
-            <p>An iPhone web app that reads the French captions in an Instagram reel or screenshot and turns the vocabulary into spaced-repetition flashcards.</p>
+            <p>An iPhone web app that reads the French captions in an Instagram reel or screenshot and turns the vocabulary into flashcards.</p>
             <ul class="feature-list">
-              <li>ffmpeg pulls a frame every 2 seconds and Tesseract reads the French on screen</li>
-              <li>Words become their dictionary form (allait → aller) with meaning and gender from open dictionaries</li>
-              <li>Offline reviews with SM-2, plus grammar quizzes, vocab decks by level and a conjugation search for about 7,200 verbs</li>
+              <li>Pulls a frame every 2 seconds and reads the French on screen with OCR</li>
+              <li>Turns each word into its dictionary form (allait becomes aller) with meaning and gender</li>
+              <li>Reviews work offline with spaced repetition, plus grammar quizzes and a conjugation search for about 7,200 verbs</li>
             </ul>
-            <div class="project-links"><a href="projects.html#reel-cards">Read more →</a><a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <div class="project-links">
+              <a href="projects.html#reel-cards">Read more</a>
+              <a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">Code on GitHub&nbsp;<span class="ext" aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <div class="build-shade" aria-hidden="true"></div>
         </article>
         <div class="stack-end" aria-hidden="true"></div>
       </div>
+
+      <p class="builds-more"><a href="projects.html">See every project, including my HelloHack hackathon build</a></p>
     </div>
   </section>
 
-  <!-- S4 · HACKATHONS: pinned, scrolls sideways -->
-  <section id="hackathons" class="hscroll" data-section>
-    <div class="hscroll-pin">
-      <div class="wrap hscroll-head">
-        <div>
-          <div class="sector-label">Sector 04 — Hackathons</div>
-          <h2 class="section-title">Built against the clock</h2>
-        </div>
-        <div class="hscroll-count" aria-hidden="true"><span class="count-now">01</span> / <span class="count-total">05</span></div>
-      </div>
-
-      <div class="hscroll-track">
-        <article class="hpanel hpanel-intro">
-          <div class="hp-eyebrow">HelloHack 2026 · Team project</div>
-          <h3 class="hp-title">Soccer Scout</h3>
-          <p>Search for a professional player, see a data-driven breakdown of how they play, get a training plan to build the same abilities, then practise in front of a live coach that checks your form.</p>
-          <div class="hp-tags"><span>React</span><span>FastAPI</span><span>Python</span><span>MediaPipe</span><span>OpenAI</span></div>
-          <a class="hp-link" href="https://github.com/Danielnorouzi/HelloHackathon" target="_blank" rel="noopener">GitHub repo ↗</a>
-          <div class="hp-hint" aria-hidden="true">Keep scrolling →</div>
-        </article>
-
-        <article class="hpanel">
-          <div class="hp-step">01 · Scout</div>
-          <svg class="pitch hp-visual" viewBox="-4 -4 128 88" role="img" aria-label="Football pitch drawn on StatsBomb's 120 by 80 grid, with an illustrative shot map">
-            <path class="draw" pathLength="1" d="M0 0H120V80H0Z"/>
-            <path class="draw" pathLength="1" d="M60 0V80"/>
-            <path class="draw" pathLength="1" d="M60 30A10 10 0 1 1 60 50A10 10 0 1 1 60 30"/>
-            <path class="draw" pathLength="1" d="M0 18H18V62H0"/>
-            <path class="draw" pathLength="1" d="M120 18H102V62H120"/>
-            <path class="draw" pathLength="1" d="M0 30H6V50H0"/>
-            <path class="draw" pathLength="1" d="M120 30H114V50H120"/>
-            <path class="draw" pathLength="1" d="M18 32.7A10 10 0 0 1 18 47.3"/>
-            <path class="draw" pathLength="1" d="M102 32.7A10 10 0 0 0 102 47.3"/>
-            <g class="shots">
-              <circle cx="108" cy="38" r="1.8"/><circle cx="104" cy="44" r="1.4"/><circle cx="110" cy="46" r="2.2" class="goal"/>
-              <circle cx="97" cy="35" r="1.4"/><circle cx="112" cy="41" r="2.2" class="goal"/><circle cx="100" cy="50" r="1.2"/>
-              <circle cx="94" cy="42" r="1.6"/><circle cx="106" cy="31" r="1.2"/>
-            </g>
-          </svg>
-          <p class="hp-copy">Event data from StatsBomb Open Data: 930 matches preloaded and turned into per-90 stats and percentiles for 6,567 player-seasons.</p>
-          <div class="hp-caption">Pitch on StatsBomb's 120 × 80 grid · illustrative shots</div>
-        </article>
-
-        <article class="hpanel">
-          <div class="hp-step">02 · Rate</div>
-          <ul class="criteria hp-visual">
-            <li class="measured"><b>SHO</b><span class="bar"><i></i></span><em>measured</em></li>
-            <li class="measured"><b>PAS</b><span class="bar"><i></i></span><em>measured</em></li>
-            <li class="measured"><b>DRI</b><span class="bar"><i></i></span><em>measured</em></li>
-            <li class="measured"><b>DEF</b><span class="bar"><i></i></span><em>measured</em></li>
-            <li class="missing"><b>PAC</b><span class="bar"><i></i></span><em>needs tracking data</em></li>
-            <li class="missing"><b>PHY</b><span class="bar"><i></i></span><em>needs tracking data</em></li>
-          </ul>
-          <p class="hp-copy">Every card rating is measured from source data, estimated from players in the same position group, or marked unavailable. Nothing is invented to fill a gap.</p>
-        </article>
-
-        <article class="hpanel">
-          <div class="hp-step">03 · Train</div>
-          <ol class="week hp-visual">
-            <li class="train"><b>D1</b>Train</li>
-            <li class="rest"><b>D2</b>Rest</li>
-            <li class="train"><b>D3</b>Train</li>
-            <li class="train"><b>D4</b>Train</li>
-            <li class="rest"><b>D5</b>Rest</li>
-            <li class="train"><b>D6</b>Train</li>
-            <li class="test"><b>D7</b>Test</li>
-          </ol>
-          <p class="hp-copy">Code finds your two or three biggest gaps and lays out the training days, rest days and a day-7 re-test. The AI writes each session, checked against your equipment and time.</p>
-          <div class="hp-caption">Example week · D7 is the re-test</div>
-        </article>
-
-        <article class="hpanel">
-          <div class="hp-step">04 · Live coach</div>
-          <svg class="pose hp-visual" viewBox="0 0 120 120" role="img" aria-label="Stick figure striking a ball, showing tracked body landmarks">
-            <path class="draw" pathLength="1" d="M58 30L56 52"/>
-            <path class="draw" pathLength="1" d="M58 34L44 44L36 56"/>
-            <path class="draw" pathLength="1" d="M58 34L72 40L82 34"/>
-            <path class="draw" pathLength="1" d="M56 52L50 74L48 98"/>
-            <path class="draw" pathLength="1" d="M56 52L72 66L88 76"/>
-            <path class="draw ground" pathLength="1" d="M20 102H104"/>
-            <g class="joints">
-              <circle cx="59" cy="22" r="6"/>
-              <circle cx="58" cy="34" r="2"/><circle cx="44" cy="44" r="2"/><circle cx="36" cy="56" r="2"/>
-              <circle cx="72" cy="40" r="2"/><circle cx="82" cy="34" r="2"/><circle cx="56" cy="52" r="2"/>
-              <circle cx="50" cy="74" r="2"/><circle cx="48" cy="98" r="2"/><circle cx="72" cy="66" r="2"/><circle cx="88" cy="76" r="2"/>
-            </g>
-            <circle class="ball" cx="96" cy="80" r="5"/>
-          </svg>
-          <p class="hp-copy">Pose tracking (33 body landmarks) and ball detection run entirely in the browser, then short spoken hints help you fix your shooting or dribbling form.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- S5 · GARAGE: more builds tilt into place -->
-  <section id="garage" class="garage" data-section>
-    <div class="wrap">
-      <div class="sector-label">Sector 05 — Garage</div>
-      <h2 class="section-title">More from the garage</h2>
-      <p class="section-intro">Smaller builds and experiments, mostly scratching my own itch.</p>
-
-      <div class="garage-grid">
-        <article class="garage-card">
-          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
-            <polyline points="0,30 15,26 30,28 45,20 60,22 75,14 90,18 105,10 120,12"/>
-            <polyline points="0,38 15,36 30,30 45,32 60,28 75,30 90,24 105,26 120,20"/>
-            <polyline points="0,20 15,22 30,16 45,18 60,12 75,16 90,8 105,12 120,6"/>
-          </svg>
-          <div class="project-tag-row"><span>Python</span><span>·</span><span>FastF1</span><span>·</span><span>Streamlit</span></div>
-          <h3>PitWall</h3>
-          <p>Fetches every lap and sector time for a driver in a chosen race and turns it into charts, including a gap delta between two drivers.</p>
-          <a href="https://github.com/Danielnorouzi/PitWall" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </article>
-
-        <article class="garage-card">
-          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
-            <path d="M8 40C30 6 70 0 112 14"/>
-            <circle cx="8" cy="40" r="2.5"/><circle cx="34" cy="16" r="2.5"/><circle cx="62" cy="6" r="2.5"/><circle cx="90" cy="7" r="2.5"/><circle cx="112" cy="14" r="2.5"/>
-          </svg>
-          <div class="project-tag-row"><span>Next.js</span><span>·</span><span>TypeScript</span><span>·</span><span>MediaPipe</span></div>
-          <h3>Rally AI</h3>
-          <p>A tennis coach in your browser. It tracks your strokes through the camera on your device, gives cues while you practise and writes a report with drills afterwards.</p>
-          <a href="https://github.com/Danielnorouzi/tennis-trainer" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </article>
-
-        <article class="garage-card">
-          <svg class="g-art" viewBox="0 0 120 48" aria-hidden="true">
-            <path d="M60 2V46M38 12L82 36M38 36L82 12"/>
-            <path d="M60 10L74 17V31L60 38L46 31V17Z"/>
-            <path d="M60 18L67 21V27L60 30L53 27V21Z"/>
-          </svg>
-          <div class="project-tag-row"><span>JavaScript</span><span>·</span><span>PWA</span></div>
-          <h3>FOCUS</h3>
-          <p>A study timer that spins a web thread by thread while you focus. In strict mode, leaving the app breaks the web. Every session goes into an archive with streaks and stats.</p>
-          <span class="g-note">Private repo</span>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- S6 · FINISH: chequered flag and contact -->
-  <section id="finish" class="scene scene-finish" data-section>
-    <div class="scene-pin">
-      <div class="chequer" aria-hidden="true"></div>
+  <!-- Finish: an ASCII car paints the headline on its way to the flag -->
+  <section class="finish night" data-night aria-labelledby="contact-title">
+    <span class="contact-anchor" id="contact"></span>
+    <div class="finish-pin">
+      <div class="speedo" aria-hidden="true"><span class="speed-num">0</span><span class="speed-unit">km/h</span></div>
       <div class="wrap finish-inner">
-        <div class="sector-label">Sector 06 — Finish line</div>
-        <h2 class="finish-title">Let's build something.</h2>
+        <h2 class="finish-title" id="contact-title">
+          <span class="ft-line">Let's build</span>
+          <span class="ft-line">something.</span>
+        </h2>
         <div class="finish-rest">
-          <p class="finish-sub">I'm looking for software engineering, testing and data internships where I can ship work people rely on. The fastest way to reach me is email.</p>
+          <p>I'm looking for software engineering, testing and data internships where I can ship work people rely on. Email is the fastest way to reach me.</p>
           <a class="finish-email" href="mailto:danynorouzi@gmail.com">danynorouzi@gmail.com</a>
-          <div class="hero-cta">
-            <a href="mailto:danynorouzi@gmail.com" class="btn btn-primary">Email me →</a>
-            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+          <div class="cta-row">
+            <a href="mailto:danynorouzi@gmail.com" class="btn btn-light">Email me</a>
+            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener" class="btn btn-outline-light">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn <span class="ext" aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
+      <div class="track" aria-hidden="true">
+        <canvas class="streaks"></canvas>
+        <div class="car"><canvas class="car-ascii"></canvas></div>
+      </div>
+      <div class="chequer" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -473,18 +313,20 @@
 <footer>
   <div class="wrap">
     <div class="footer-inner">
-      <div class="logo">Daniel<span>.</span>Norouzi</div>
+      <a href="index.html" class="logo">Daniel Norouzi</a>
       <div class="footer-links">
         <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:danynorouzi@gmail.com">Email</a>
       </div>
     </div>
-    <p class="footer-note">North Vancouver, BC · Built &amp; maintained by Daniel Norouzi</p>
+    <p class="footer-note">North Vancouver, BC. Built and maintained by Daniel Norouzi.</p>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/scroll.js"></script>
+<script src="js/vendor/motion.min.js"></script>
+<script src="js/ascii.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

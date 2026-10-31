@@ -2,35 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page not found — Daniel Norouzi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Page not found | Daniel Norouzi</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="/Img/logo.png">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header">
   <div class="nav-inner">
-    <a href="/" class="logo">Daniel<span>.</span>Norouzi</a>
-    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">MENU ☰</button>
-    <nav class="main-nav">
-      <a href="/" class="nav-link"><span class="tick">01</span>Home</a>
-      <a href="/projects.html" class="nav-link"><span class="tick">02</span>Projects</a>
-      <a href="/blog.html" class="nav-link"><span class="tick">03</span>Blog</a>
-      <a href="mailto:danynorouzi@gmail.com" class="nav-link"><span class="tick">04</span>Contact</a>
-      <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+    <a href="/" class="logo">Daniel Norouzi</a>
+    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="main-nav" id="site-nav" aria-label="Main">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/projects.html" class="nav-link">Projects</a>
+      <a href="/blog.html" class="nav-link">Blog</a>
+      <a href="/#contact" class="nav-link">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">☾</button>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="wrap">
     <div class="empty-state">
-      <div class="sector-num">404 — OFF TRACK</div>
-      <h2>This page isn't on the map</h2>
-      <p>The link may be old or mistyped. Head back to the start, or look through the projects.</p>
-      <a href="/" class="btn btn-primary">Back to the start →</a>
+      <p class="label">404</p>
+      <h1 class="sr-only">Page not found</h1>
+      <h2>This page went off track</h2>
+      <p>The link may be old or mistyped. Head back to the home page or look through the projects.</p>
+      <a href="/" class="btn btn-primary">Back to the home page</a>
     </div>
   </div>
 </main>
