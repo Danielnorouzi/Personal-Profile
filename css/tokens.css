@@ -1,0 +1,99 @@
+/* ===================================================================
+   Daniel Norouzi · tokens
+   Built on the design-craft tokens from Prism: a cool plaster ground,
+   near-black ink, one dark red for everything that should be noticed,
+   and a graphite night for the closing chapter. Curves and springs are
+   the measured ones from that system.
+   =================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* colour roles */
+  --bg: oklch(.905 .004 250);          /* plaster */
+  --surface: oklch(.945 .003 250);
+  --ink: oklch(.2 .012 250);
+  --muted: oklch(.45 .012 250);
+  --line: oklch(.2 .012 250 / .12);
+  --line-strong: oklch(.2 .012 250 / .24);
+  --accent: oklch(.46 .17 25);         /* dark red, #A21921 */
+  --accent-hover: oklch(.4 .155 25);
+  --accent-ink: oklch(.985 .003 25);
+  --deep: oklch(.17 .012 255);         /* graphite night */
+  --deep-ink: oklch(.95 .005 250);
+  --deep-muted: oklch(.74 .012 250);
+  --deep-accent: oklch(.68 .17 25);    /* red that reads on the night */
+  --signal: oklch(.62 .23 28);         /* start lights */
+  --ok: oklch(.5 .13 150);
+  --warn: oklch(.55 .12 75);
+
+  /* faces */
+  --font-display: "Host Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --font-text: "Host Grotesk", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* few sizes, far apart */
+  --step-small: clamp(.8125rem, .79rem + .1vw, .875rem);
+  --step-body: clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(3.25rem, 1rem + 8.2vw, 9rem);
+
+  /* space */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 40px; --s-7: 64px; --s-8: 96px; --s-9: 144px;
+  --margin: max(clamp(16px, 3.2vw, 48px), env(safe-area-inset-left, 0px));
+  --section: clamp(96px, 14vw, 200px);
+  --max: 1440px;
+
+  /* curves */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-expo: cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.76, 0, .24, 1);
+
+  /* real springs sampled to linear(); use each with its duration */
+  --spring-soft-t: 538ms;   /* damping 1.0, response .4: default UI */
+  --spring-soft: linear(0, .043, .139, .255, .373, .483, .58, .663, .733, .789, .835, .872, .901, .924, .941, .955, .966, .974, .98, .985, .989, .992, .994, .995, .996, .997, 1);
+  --spring-flick-t: 434ms;  /* damping .8, response .34: after a gesture */
+  --spring-flick: linear(0, .04, .136, .259, .39, .515, .627, .724, .803, .866, .915, .951, .976, .994, 1.005, 1.011, 1.014, 1.015, 1.015, 1.013, 1.011, 1.009, 1.007, 1.006, 1.004, 1.003, 1);
+
+  /* durations */
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-ui: 240ms;
+  --t-reveal: 800ms;
+  --stagger-line: 90ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: clip; -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 var(--step-body)/1.5 var(--font-text);
+  font-kerning: normal;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 500; text-wrap: balance; hyphens: none; }
+p { margin: 0; max-width: 62ch; text-wrap: pretty; }
+ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+img, video, canvas, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { touch-action: manipulation; }
+a { color: inherit; text-underline-offset: .18em; text-decoration-thickness: .07em; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tabular { font-variant-numeric: tabular-nums; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
