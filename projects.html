@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://danielnorouzi.com/projects.html">
 <link rel="icon" type="image/png" href="Img/logo.png">
 <link rel="apple-touch-icon" href="Img/logo.png">
-<meta name="theme-color" content="#07111F">
+<meta name="theme-color" content="#DEE0E2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Daniel Norouzi">
 <meta property="og:title" content="Projects | Daniel Norouzi">
@@ -22,199 +22,157 @@
 <meta name="twitter:title" content="Projects | Daniel Norouzi">
 <meta name="twitter:description" content="Projects by Daniel Norouzi: an F1 season tracker in Java, the Daily life tracker, Reel Cards for learning French from Instagram reels, and the Soccer Scout hackathon project.">
 <meta name="twitter:image" content="https://danielnorouzi.com/Img/og-image.jpg">
-<link rel="stylesheet" href="css/style.css?v=20261031">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261102">
+<link rel="stylesheet" href="css/glass.css?v=20261102">
+<link rel="stylesheet" href="css/style.css?v=20261102">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Daniel Norouzi</a>
-    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="main-nav" id="site-nav" aria-label="Main">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="projects.html" class="nav-link active" aria-current="page">Projects</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="index.html#contact" class="nav-link">Contact</a>
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">☾</button>
-    </nav>
-  </div>
+<header class="bar glass glass--frosted" data-ink="dark">
+  <a class="mark" href="index.html" aria-label="Daniel Norouzi, home"><span class="mark-full">Daniel Norouzi</span><span class="mark-short" aria-hidden="true">DN</span></a>
+  <nav aria-label="Main">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 </header>
 
 <main id="main">
 
-  <div class="page-header">
-    <div class="wrap">
-      <h1>Projects</h1>
-      <p>Three main builds, a hackathon project, and smaller experiments.</p>
-    </div>
+  <div class="page-head" data-ink="dark">
+    <h1>Projects</h1>
+    <p>Three main builds, a hackathon project, and the smaller experiments in between.</p>
   </div>
 
-  <div class="wrap">
-    <h2 class="sr-only">Main builds</h2>
-    <div class="full-projects-grid">
+  <section class="group" data-ink="dark" aria-labelledby="main-builds">
+    <h2 id="main-builds">Main builds</h2>
 
-      <article class="project-detail-card fade-up" id="f1-tracker">
-        <div class="project-thumb">
-          <img src="Img/f1-car.jpg" alt="Formula 1 car silhouette, artwork for the F1 Season Tracker" width="1500" height="750" class="contain" loading="lazy">
-        </div>
-        <div class="project-body">
-          <div class="project-head">
-            <p class="tech">Java, Swing, JUnit</p>
-            <span class="status-badge">In progress</span>
-          </div>
-          <h3>F1 Season Tracker</h3>
-          <p>An object-oriented desktop application that tracks a full Formula 1 season race by race.</p>
-          <ul class="feature-list">
-            <li>Records race results and updates driver and constructor standings automatically</li>
-            <li>Shows live championship progress in a built-in GUI</li>
-            <li>Saves season data so it carries over between sessions</li>
-            <li>Built with systematic debugging and JUnit testing throughout</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">My GitHub&nbsp;<span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
+    <article class="project" id="f1-tracker">
+      <div class="project-media">
+        <img src="Img/f1-car.jpg" alt="Formula 1 car silhouette, artwork for the F1 Season Tracker" width="1500" height="750" class="contain" loading="lazy" style="background:var(--plate-f1)">
+      </div>
+      <div class="project-copy">
+        <div class="project-top"><p class="tech">Java, Swing, JUnit</p><span class="status">In progress</span></div>
+        <h3>F1 Season Tracker</h3>
+        <p>An object-oriented desktop application that tracks a full Formula 1 season race by race.</p>
+        <ul class="points">
+          <li>Records race results and updates driver and constructor standings automatically</li>
+          <li>Shows live championship progress in a built-in GUI</li>
+          <li>Saves season data so it carries over between sessions</li>
+          <li>Built with systematic debugging and JUnit testing throughout</li>
+        </ul>
+        <a class="link" href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">My GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="project" id="life-tracker">
+      <div class="project-media">
+        <img src="Img/daily.jpg" alt="The Daily app showing routines and today's task lists" width="1600" height="835" loading="lazy" style="object-position:0 0">
+      </div>
+      <div class="project-copy">
+        <div class="project-top"><p class="tech">JavaScript, HTML, CSS</p><span class="status">In progress</span></div>
+        <h3>Daily (Life Tracker)</h3>
+        <p>A productivity tracker built around time awareness, recurring tasks and daily routines. It answers one question: do you have enough time today?</p>
+        <ul class="points">
+          <li>Tabs of tasks with a duration and a schedule: daily, weekdays, weekends, a set day or one time</li>
+          <li>Morning, midday and evening routines that reset every day</li>
+          <li>A green, yellow or red status compares the time left in your day with what you've planned</li>
+          <li>Every task logs itself as done or missed at midnight, with weekly, monthly and yearly charts</li>
+        </ul>
+        <a class="link" href="https://github.com/Danielnorouzi/To-do-List" target="_blank" rel="noopener">Code on GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="project" id="reel-cards">
+      <div class="project-media reel-media">
+        <img src="Img/reel-cards-icon.png" alt="Reel Cards app icon: a dog in a beret above a French flashcard" width="256" height="256" loading="lazy">
+      </div>
+      <div class="project-copy">
+        <div class="project-top"><p class="tech">Node.js, Tesseract OCR, ffmpeg, PWA</p><span class="status quiet">No paid APIs</span></div>
+        <h3>Reel Cards</h3>
+        <p>A personal iPhone web app that reads the French text on screen in an Instagram reel or a screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no AI models and no accounts.</p>
+        <ul class="points">
+          <li>The server pulls a frame every 2 seconds with ffmpeg and reads the French captions with Tesseract OCR</li>
+          <li>Words become their dictionary form (allait becomes aller) with meaning and gender from bundled open dictionaries</li>
+          <li>Cards live on the phone and review offline with SM-2 (Again, Hard, Good, Easy), with an Anki export</li>
+          <li>A Learn tab with about 4,400 grammar questions from A1 to C1, 2,500 vocab words by level, and conjugations for about 7,200 verbs</li>
+        </ul>
+        <a class="link" href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">Code on GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" data-ink="dark" aria-labelledby="hackathon">
+    <h2 id="hackathon">Hackathon</h2>
+
+    <article class="project" id="soccer-scout">
+      <div class="project-media">
+        <svg class="pitch" viewBox="-4 -4 128 88" role="img" aria-label="Football pitch outline">
+          <path d="M0 0H120V80H0Z M60 0V80 M0 18H18V62H0 M120 18H102V62H120 M0 30H6V50H0 M120 30H114V50H120"/>
+          <circle cx="60" cy="40" r="10"/>
+        </svg>
+      </div>
+      <div class="project-copy">
+        <div class="project-top"><p class="tech">React, FastAPI, MediaPipe, OpenAI</p><span class="status done">HelloHack 2026</span></div>
+        <h3>Soccer Scout</h3>
+        <p>Our team project for HelloHack 2026. Search for a professional player, see a data-driven breakdown of how they play, get a training plan to build the same abilities, then practise in front of a live coach.</p>
+        <ul class="points">
+          <li>StatsBomb Open Data: 930 matches preloaded into per-90 stats and percentiles for 6,567 player-seasons</li>
+          <li>Card ratings are measured, estimated from the player's position group, or marked unavailable</li>
+          <li>Training plans target your two or three biggest gaps and end with a day-7 re-test</li>
+          <li>The live coach runs pose tracking and ball detection in the browser and gives spoken hints</li>
+        </ul>
+        <a class="link" href="https://github.com/Danielnorouzi/HelloHackathon" target="_blank" rel="noopener">Code on GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" data-ink="dark" aria-labelledby="side-builds">
+    <h2 id="side-builds">Side builds</h2>
+    <div class="mini-grid">
+      <article class="mini" id="pitwall">
+        <p class="tech">Python, FastF1, Streamlit</p>
+        <h3>PitWall</h3>
+        <p>Fetches every lap and sector time for a driver in a chosen race and turns it into charts, including a gap delta between two drivers.</p>
+        <a class="link" href="https://github.com/Danielnorouzi/PitWall" target="_blank" rel="noopener">Code on GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </article>
-
-      <article class="project-detail-card fade-up" id="life-tracker">
-        <div class="project-thumb">
-          <img src="Img/daily.jpg" alt="The Daily app showing routines and today's task lists" width="1600" height="835" loading="lazy" style="object-position: 0 0;">
-        </div>
-        <div class="project-body">
-          <div class="project-head">
-            <p class="tech">JavaScript, HTML, CSS</p>
-            <span class="status-badge">In progress</span>
-          </div>
-          <h3>Daily (Life Tracker)</h3>
-          <p>A productivity tracker built around time awareness, recurring tasks and daily routines. It answers one question: do you have enough time today?</p>
-          <ul class="feature-list">
-            <li>Tabs of tasks with a duration and a schedule: daily, weekdays, weekends, a set day or one time</li>
-            <li>Morning, midday and evening routines that reset every day</li>
-            <li>A green, yellow or red status compares the time left in your day with what you've planned</li>
-            <li>Every task logs itself as done or missed at midnight, with weekly, monthly and yearly charts</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/Danielnorouzi/To-do-List" target="_blank" rel="noopener">Code on GitHub&nbsp;<span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
+      <article class="mini" id="rally-ai">
+        <p class="tech">Next.js, TypeScript, MediaPipe</p>
+        <h3>Rally AI</h3>
+        <p>A tennis coach in your browser. It tracks your strokes through the camera on your device, gives cues while you practise and writes a report with drills afterwards.</p>
+        <a class="link" href="https://github.com/Danielnorouzi/tennis-trainer" target="_blank" rel="noopener">Code on GitHub <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </article>
-
+      <article class="mini" id="focus">
+        <p class="tech">JavaScript, PWA</p>
+        <h3>FOCUS</h3>
+        <p>A study timer that spins a web thread by thread while you focus. In strict mode, leaving the app breaks the web. Every session goes into an archive with streaks and stats.</p>
+        <p class="tech">Private repository</p>
+      </article>
     </div>
-
-    <div class="full-projects-grid project-grid-tight project-grid-single">
-
-      <article class="project-detail-card project-wide fade-up" id="reel-cards">
-        <div class="project-thumb reel-thumb">
-          <img src="Img/reel-cards-icon.png" alt="Reel Cards app icon: a dog in a beret above a French flashcard" width="256" height="256" loading="lazy">
-        </div>
-        <div class="project-body">
-          <div class="project-head">
-            <p class="tech">Node.js, Tesseract OCR, ffmpeg, PWA</p>
-            <span class="status-badge planned">No paid APIs</span>
-          </div>
-          <h3>Reel Cards</h3>
-          <p>A personal iPhone web app that reads the French text on screen in an Instagram reel or a screenshot, picks out the vocabulary and turns it into spaced-repetition flashcards. No paid APIs, no AI models and no accounts.</p>
-          <ul class="feature-list">
-            <li>The server pulls a frame every 2 seconds with ffmpeg and reads the French captions with Tesseract OCR</li>
-            <li>Words become their dictionary form (allait becomes aller) with meaning and gender from bundled open dictionaries</li>
-            <li>Cards live on the phone and review offline with SM-2 (Again, Hard, Good, Easy), with an Anki export</li>
-            <li>A Learn tab with about 4,400 grammar questions from A1 to C1, 2,500 vocab words by level, and conjugations for about 7,200 verbs</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/Danielnorouzi/french-reel-cards" target="_blank" rel="noopener">Code on GitHub&nbsp;<span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <div class="wrap">
-    <h2 class="label">Hackathon</h2>
-    <div class="full-projects-grid project-grid-tight project-grid-single">
-
-      <article class="project-detail-card project-wide fade-up" id="soccer-scout">
-        <div class="project-thumb">
-          <svg class="thumb-pitch" viewBox="-4 -4 128 88" role="img" aria-label="Football pitch outline">
-            <path d="M0 0H120V80H0Z M60 0V80 M0 18H18V62H0 M120 18H102V62H120 M0 30H6V50H0 M120 30H114V50H120"/>
-            <circle cx="60" cy="40" r="10"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-head">
-            <p class="tech">React, FastAPI, MediaPipe, OpenAI</p>
-            <span class="status-badge complete">HelloHack 2026</span>
-          </div>
-          <h3>Soccer Scout</h3>
-          <p>Our team project for HelloHack 2026. Search for a professional player, see a data-driven breakdown of how they play, get a training plan to build the same abilities, then practise in front of a live coach.</p>
-          <ul class="feature-list">
-            <li>StatsBomb Open Data: 930 matches preloaded into per-90 stats and percentiles for 6,567 player-seasons</li>
-            <li>Card ratings are measured, estimated from the player's position group, or marked unavailable</li>
-            <li>Training plans target your two or three biggest gaps and end with a day-7 re-test</li>
-            <li>The live coach runs pose tracking and ball detection in the browser and gives spoken hints</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/Danielnorouzi/HelloHackathon" target="_blank" rel="noopener">Code on GitHub&nbsp;<span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <div class="wrap">
-    <h2 class="label">Side builds</h2>
-    <div class="full-projects-grid project-grid-tight project-grid-3">
-
-      <article class="project-detail-card fade-up" id="pitwall">
-        <div class="project-body">
-          <p class="tech">Python, FastF1, Streamlit</p>
-          <h3>PitWall</h3>
-          <p>Fetches every lap and sector time for a driver in a chosen race and turns it into charts, including a gap delta between two drivers.</p>
-          <div class="project-links"><a href="https://github.com/Danielnorouzi/PitWall" target="_blank" rel="noopener">Code on GitHub&nbsp;<span aria-hidden="true">↗</span></a></div>
-        </div>
-      </article>
-
-      <article class="project-detail-card fade-up" id="rally-ai">
-        <div class="project-body">
-          <p class="tech">Next.js, TypeScript, MediaPipe</p>
-          <h3>Rally AI</h3>
-          <p>A tennis coach in your browser. It tracks your strokes through the camera on your device, gives cues while you practise and writes a report with drills afterwards.</p>
-          <div class="project-links"><a href="https://github.com/Danielnorouzi/tennis-trainer" target="_blank" rel="noopener">Code on GitHub&nbsp;<span aria-hidden="true">↗</span></a></div>
-        </div>
-      </article>
-
-      <article class="project-detail-card fade-up" id="focus">
-        <div class="project-body">
-          <p class="tech">JavaScript, PWA</p>
-          <h3>FOCUS</h3>
-          <p>A study timer that spins a web thread by thread while you focus. In strict mode, leaving the app breaks the web. Every session goes into an archive with streaks and stats.</p>
-          <p class="tech">Private repository</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
+  </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-inner">
-      <a href="index.html" class="logo">Daniel Norouzi</a>
-      <div class="footer-links">
-        <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:danynorouzi@gmail.com">Email</a>
-      </div>
-    </div>
-    <p class="footer-note">North Vancouver, BC. Built and maintained by Daniel Norouzi.</p>
+<footer class="close" data-ink="dark">
+  <div class="close-top">
+    <p>North Vancouver, BC. Built and maintained by Daniel Norouzi.</p>
+    <nav class="close-links" aria-label="Elsewhere">
+      <a class="link" href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
+      <a class="link" href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link" href="mailto:danynorouzi@gmail.com">Email</a>
+      <a class="link" href="blog.html">Blog</a>
+    </nav>
   </div>
+  <p class="closing-name" aria-hidden="true">Norouzi</p>
 </footer>
 
-<script src="js/main.js?v=20261031"></script>
+<script src="js/main.js?v=20261102"></script>
 </body>
 </html>

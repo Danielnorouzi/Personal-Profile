@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://danielnorouzi.com/blog.html">
 <link rel="icon" type="image/png" href="Img/logo.png">
 <link rel="apple-touch-icon" href="Img/logo.png">
-<meta name="theme-color" content="#07111F">
+<meta name="theme-color" content="#DEE0E2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Daniel Norouzi">
 <meta property="og:title" content="Blog | Daniel Norouzi">
@@ -22,61 +22,54 @@
 <meta name="twitter:title" content="Blog | Daniel Norouzi">
 <meta name="twitter:description" content="Notes from Daniel Norouzi on what he is building, what he is learning, and motorsport engineering. First posts coming soon.">
 <meta name="twitter:image" content="https://danielnorouzi.com/Img/og-image.jpg">
-<link rel="stylesheet" href="css/style.css?v=20261031">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261102">
+<link rel="stylesheet" href="css/glass.css?v=20261102">
+<link rel="stylesheet" href="css/style.css?v=20261102">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Daniel Norouzi</a>
-    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="main-nav" id="site-nav" aria-label="Main">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="blog.html" class="nav-link active" aria-current="page">Blog</a>
-      <a href="index.html#contact" class="nav-link">Contact</a>
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">☾</button>
-    </nav>
-  </div>
+<header class="bar glass glass--frosted" data-ink="dark">
+  <a class="mark" href="index.html" aria-label="Daniel Norouzi, home"><span class="mark-full">Daniel Norouzi</span><span class="mark-short" aria-hidden="true">DN</span></a>
+  <nav aria-label="Main">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 </header>
 
 <main id="main">
-
-  <div class="page-header">
-    <div class="wrap">
-      <h1>Blog</h1>
-      <p>Notes on what I'm building, what I'm learning, and the occasional thought on motorsport engineering.</p>
-    </div>
+  <div class="page-head" data-ink="dark">
+    <h1>Blog</h1>
+    <p>Notes on what I'm building, what I'm learning, and the occasional thought on motorsport engineering.</p>
   </div>
 
-  <div class="wrap">
-    <div class="empty-state">
-      <p class="label">No posts yet</p>
-      <h2>The first write-up is on its way</h2>
-      <p>Write-ups on projects, coursework and things I'm learning will land here. Until then, the projects page has the details.</p>
-      <a href="projects.html" class="btn btn-primary">See my projects</a>
-    </div>
-  </div>
-
+  <section class="empty" data-ink="dark" aria-labelledby="empty-title">
+    <h2 id="empty-title">The first write-up is on its way</h2>
+    <p>Write-ups on projects, coursework and things I'm learning will land here. Until then, the projects page has the details.</p>
+    <a class="btn" href="projects.html">See my projects</a>
+  </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-inner">
-      <a href="index.html" class="logo">Daniel Norouzi</a>
-      <div class="footer-links">
-        <a href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:danynorouzi@gmail.com">Email</a>
-      </div>
-    </div>
-    <p class="footer-note">North Vancouver, BC. Built and maintained by Daniel Norouzi.</p>
+<footer class="close" data-ink="dark">
+  <div class="close-top">
+    <p>North Vancouver, BC. Built and maintained by Daniel Norouzi.</p>
+    <nav class="close-links" aria-label="Elsewhere">
+      <a class="link" href="https://github.com/Danielnorouzi" target="_blank" rel="noopener">GitHub</a>
+      <a class="link" href="https://www.linkedin.com/in/daniel-norouzi-846b021ba/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link" href="mailto:danynorouzi@gmail.com">Email</a>
+      <a class="link" href="blog.html" aria-current="page">Blog</a>
+    </nav>
   </div>
+  <p class="closing-name" aria-hidden="true">Norouzi</p>
 </footer>
 
-<script src="js/main.js?v=20261031"></script>
+<script src="js/main.js?v=20261102"></script>
 </body>
 </html>

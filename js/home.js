@@ -1,21 +1,36 @@
 // ===================================================================
-// Daniel Norouzi · home page choreography
-// Motion drives the timeline and scroll links; ascii.js draws the
-// portrait and the car. One function per scene, run in page order.
+// Daniel Norouzi · home page
+// Motion (motion.dev) links scenes to the scrollbar; ascii.js draws the
+// portrait and the car. One function per scene, in page order, plus the
+// two builds you can try: Daily's time check and a Reel Cards review.
 // ===================================================================
 
 (function () {
   const root = document.documentElement;
   const M = window.Motion;
   const A = window.Ascii;
-  if (!A) return;
 
   const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
   const range = (p, a, b) => clamp((p - a) / (b - a));
   const easeOut3 = (t) => 1 - Math.pow(1 - t, 3);
-  const EASE_OUT = [0.16, 1, 0.3, 1];
   const EASE_IN_OUT = [0.76, 0, 0.24, 1];
-  const NIGHT = '#07111F';
+
+  // Canvas colours come from the CSS tokens; hex only where a browser can't paint oklch().
+  const probe = document.createElement('canvas').getContext('2d');
+  function token(name, fallback) {
+    const value = getComputedStyle(root).getPropertyValue(name).trim();
+    probe.fillStyle = '#010203';
+    probe.fillStyle = value;
+    return probe.fillStyle === '#010203' ? fallback : value;
+  }
+  const C = {
+    accent: token('--accent', '#A21921'),
+    ink: token('--ink', '#12171B'),
+    bg: token('--bg', '#DEE0E2'),
+    surface: token('--surface', '#EBEDEF'),
+    deepInk: token('--deep-ink', '#ECEFF2'),
+    deepAccent: token('--deep-accent', '#EF6661'),
+  };
 
   // Keep the face and shirt, fade the bokeh behind them with a soft oval.
   const faceMask = (u, v) => {
@@ -24,13 +39,14 @@
     const t = clamp((Math.sqrt(dx * dx + dy * dy) - 0.62) / 0.38);
     return 1 - t * t * (3 - 2 * t);
   };
-  const portraitOptions = (extra) => Object.assign({
+  const portrait = (extra) => Object.assign({
     contrast: 1.6,
     gamma: 1.1,
     threshold: 0.12,
     mask: faceMask,
-    color: '#D9B566',
-    accent: '#EDEAE2',
+    color: C.accent,
+    accent: C.ink,
+    minAlpha: 0.34,
   }, extra);
   const carOptions = {
     crop: [40, 206, 1414, 318],
@@ -41,8 +57,8 @@
     threshold: 0.16,
     dither: 0.6,
     minAlpha: 0.5,
-    color: '#EDEAE2',
-    accent: '#D9B566',
+    color: C.deepInk,
+    accent: C.deepAccent,
     cols: (w) => Math.round(clamp(w / 6.2, 70, 190)),
   };
 
@@ -53,18 +69,21 @@
     resizeTimer = setTimeout(() => layouts.forEach((fn) => fn()), 150);
   });
 
-  header();
+  // the two live builds work with or without motion
+  dailyCheck();
+  reelDeck();
 
+  if (!A) return;
   if (!root.classList.contains('motion') || !M) {
     root.classList.remove('motion', 'intro-on');
     staticArt();
     return;
   }
   root.classList.add('live');
-  const { animate, scroll, stagger } = M;
+  const { animate, scroll } = M;
 
   // Motion hands over raw scroll progress; each scene eases toward it so
-  // the motion has some weight without lagging behind the scrollbar.
+  // movement has weight without falling behind the scrollbar.
   function follower(render, ease = 0.14) {
     let cur = null, target = 0, raf = 0;
     function loop() {
@@ -80,41 +99,16 @@
       if (!raf) raf = requestAnimationFrame(loop);
     };
   }
-
   const isPinned = (el) => getComputedStyle(el).position === 'sticky';
 
   const hero = setupHero();
-  intro().then((delay) => hero.reveal(delay));
+  intro().then((delay) => {
+    root.classList.add('ready');
+    hero.decode(delay);
+  });
   about();
   toolkit();
-  builds();
   finish();
-
-  // ---------------------------------------------------------------
-  // Header: transparent over the night bands, lap line shows progress
-  // ---------------------------------------------------------------
-  function header() {
-    const bar = document.querySelector('.site-header');
-    if (!bar) return;
-    const lap = bar.querySelector('.lap span');
-    const bands = Array.from(document.querySelectorAll('[data-night]'));
-    let ticking = false;
-    function update() {
-      ticking = false;
-      const max = root.scrollHeight - innerHeight;
-      if (lap) lap.style.transform = 'scaleX(' + (max > 0 ? clamp(scrollY / max) : 0).toFixed(4) + ')';
-      const y = bar.offsetHeight * 0.5;
-      bar.classList.toggle('over-night', bands.some((b) => {
-        const r = b.getBoundingClientRect();
-        return r.top <= y && r.bottom > y;
-      }));
-    }
-    window.addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    layouts.push(update);
-    update();
-  }
 
   // ---------------------------------------------------------------
   // Opening: five lights, a held beat, lights out, curtains part
@@ -122,7 +116,7 @@
   function intro() {
     return new Promise((resolve) => {
       const el = document.querySelector('.intro');
-      if (!el || !root.classList.contains('intro-on')) { resolve(0.15); return; }
+      if (!el || !root.classList.contains('intro-on')) { resolve(0.05); return; }
       try { sessionStorage.setItem('intro-seen', '1'); } catch (e) { /* private mode */ }
 
       const cols = el.querySelectorAll('.lamp-col');
@@ -139,33 +133,33 @@
         timers.forEach(clearTimeout);
         skipEvents.forEach((ev) => window.removeEventListener(ev, skip));
         cols.forEach((c) => c.classList.remove('on'));
-        const d = fast ? 0.5 : 0.95;
-        animate(gantry, { opacity: 0 }, { duration: 0.2 });
+        const d = fast ? 0.45 : 0.75;
+        animate(gantry, { opacity: 0 }, { duration: 0.18 });
         animate(top, { transform: ['translateY(0%)', 'translateY(-100%)'] }, { duration: d, ease: EASE_IN_OUT });
         animate(bottom, { transform: ['translateY(0%)', 'translateY(100%)'] }, { duration: d, ease: EASE_IN_OUT })
           .then(() => root.classList.remove('intro-on'));
-        resolve(fast ? 0.05 : 0.3);
+        resolve(fast ? 0.05 : 0.25);
       }
       function skip() { open(true); }
 
-      animate(gantry, { opacity: [0, 1] }, { duration: 0.35 });
-      const T0 = 320, STEP = 170, HOLD = 520;
+      const T0 = 180, STEP = 150, HOLD = 380;
       cols.forEach((c, i) => timers.push(setTimeout(() => c.classList.add('on'), T0 + i * STEP)));
       timers.push(setTimeout(() => cols.forEach((c) => c.classList.remove('on')), T0 + 4 * STEP + HOLD));
-      timers.push(setTimeout(() => open(false), T0 + 4 * STEP + HOLD + 140));
+      timers.push(setTimeout(() => open(false), T0 + 4 * STEP + HOLD + 110));
       skipEvents.forEach((ev) => window.addEventListener(ev, skip, { passive: true }));
     });
   }
 
   // ---------------------------------------------------------------
-  // Hero: ASCII portrait decodes, the name rises, the camera pushes in
+  // Hero: the portrait decodes in, answers the pointer, and dithers away
   // ---------------------------------------------------------------
   function setupHero() {
     const el = document.querySelector('.hero');
     const img = el.querySelector('.hero-photo');
-    const art = A.create(el.querySelector('.hero-ascii'), img, portraitOptions({
-      cols: (w) => (w < 420 ? 54 : 76),
-      flicker: 0.01,
+    const hint = el.querySelector('.hint');
+    const art = A.create(el.querySelector('.hero-ascii'), img, portrait({
+      cols: (w) => (w < 420 ? 54 : 78),
+      flicker: 0.008,
       pointer: true,
     }));
     const ready = A.ready(img).then(() => {
@@ -175,22 +169,19 @@
     }).catch(() => {});
     layouts.push(() => art.layout());
 
-    // scrolling away: the name lifts and fades, the portrait sinks and grows
-    const away = { target: el, offset: ['start start', 'end start'] };
-    scroll(animate(el.querySelector('.hero-inner'),
-      { transform: ['translateY(0vh)', 'translateY(-14vh)'], opacity: [1, 0] }, { ease: 'linear' }), away);
-    scroll(animate(el.querySelector('.hero-art'),
-      { transform: ['translateY(0vh) scale(1)', 'translateY(10vh) scale(1.08)'], opacity: [1, 0.15] }, { ease: 'linear' }), away);
+    if (hint) {
+      el.querySelector('.hero-ascii').addEventListener('pointermove', () => hint.classList.add('is-done'), { once: true });
+    }
+
+    // leaving the hero: the portrait breaks up in dither order, the copy lifts away
+    scroll(follower((p) => art.setDissolve(range(p, 0.12, 0.85))), { target: el, offset: ['start start', 'end start'] });
+    scroll(animate(el.querySelector('.hero-copy'),
+      { transform: ['translateY(0vh)', 'translateY(-10vh)'], opacity: [1, 0.2] }, { ease: 'linear' }),
+      { target: el, offset: ['start start', 'end start'] });
 
     return {
-      reveal(delay) {
-        animate(el.querySelectorAll('.hero-name .line > span'),
-          { transform: ['translateY(105%)', 'translateY(0%)'] },
-          { duration: 1.15, ease: EASE_OUT, delay: stagger(0.09, { startDelay: delay }) });
-        animate(el.querySelector('.hero-foot'),
-          { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
-          { duration: 0.9, ease: EASE_OUT, delay: delay + 0.4 });
-        ready.then(() => setTimeout(() => art.decode(1500), delay * 1000));
+      decode(delay) {
+        ready.then(() => setTimeout(() => art.decode(1300), delay * 1000));
       },
     };
   }
@@ -203,9 +194,9 @@
     const pin = el.querySelector('.about-pin');
     const img = el.querySelector('.about-photo img');
     const words = splitWords(el.querySelector('.reveal-text'));
-    const art = A.create(el.querySelector('.about-ascii'), img, portraitOptions({
+    const art = A.create(el.querySelector('.about-ascii'), img, portrait({
       cols: (w) => (w < 300 ? 44 : 58),
-      backing: NIGHT,
+      backing: C.bg,
     }));
     A.ready(img).then(() => art.layout()).catch(() => {});
     layouts.push(() => art.layout());
@@ -224,7 +215,7 @@
   }
 
   // ---------------------------------------------------------------
-  // Toolkit: rows slide against each other
+  // Toolkit: two rows slide against each other
   // ---------------------------------------------------------------
   function toolkit() {
     const el = document.querySelector('.toolkit');
@@ -233,32 +224,6 @@
       { transform: ['translateX(0%)', 'translateX(-24%)'] }, { ease: 'linear' }), opts);
     scroll(animate(el.querySelector('.row-b'),
       { transform: ['translateX(-24%)', 'translateX(0%)'] }, { ease: 'linear' }), opts);
-  }
-
-  // ---------------------------------------------------------------
-  // Builds: media opens as each card arrives; it sinks as the next stacks
-  // ---------------------------------------------------------------
-  function builds() {
-    const cards = Array.from(document.querySelectorAll('.build-card'));
-    let stickTops = [];
-    const measure = () => { stickTops = cards.map((c) => parseFloat(getComputedStyle(c).top) || 0); };
-    measure();
-    layouts.push(measure);
-
-    scroll(() => {
-      const vh = innerHeight;
-      cards.forEach((card, i) => {
-        const r = card.getBoundingClientRect();
-        const open = easeOut3(clamp((vh - r.top) / (vh * 0.7)));
-        card.style.setProperty('--clip', ((1 - open) * 10).toFixed(2) + '%');
-        const next = cards[i + 1];
-        if (next) {
-          const q = clamp((vh - next.getBoundingClientRect().top) / Math.max(1, vh - stickTops[i + 1]));
-          card.style.setProperty('--s', (1 - q * 0.05).toFixed(4));
-          card.style.setProperty('--dim', q.toFixed(3));
-        }
-      });
-    });
   }
 
   // ---------------------------------------------------------------
@@ -311,7 +276,8 @@
       const r = easeOut3(range(p, 0.52, 0.7));
       rest.style.opacity = r.toFixed(3);
       rest.style.transform = 'translateY(' + ((1 - r) * 28).toFixed(1) + 'px)';
-      speedo.style.opacity = (1 - range(p, 0.5, 0.6)).toFixed(3);
+      // once the car is gone the readout settles back, dim, at zero
+      speedo.style.opacity = (1 - 0.6 * range(p, 0.5, 0.6)).toFixed(3);
       wake();
     };
     scroll(follower(render, 0.12), { target: el, offset: isPinned(pin) ? ['start start', 'end end'] : ['start end', 'end end'] });
@@ -332,7 +298,6 @@
       const text = String(Math.round(speed));
       if (text !== shown) { speedNum.textContent = text; shown = text; }
       drawStreaks();
-      // keep going while the car moves or the needle is still falling
       if (inView && (dt === 0 || moved >= 0.05 || speed > 0)) raf = requestAnimationFrame(loop);
       else prevT = 0;
     }
@@ -343,7 +308,7 @@
       if (speed < 6 || carX + carW < 0 || carX > vw) return;
       sctx.font = '500 12px "JetBrains Mono", ui-monospace, monospace';
       sctx.textBaseline = 'middle';
-      sctx.fillStyle = '#EDEAE2';
+      sctx.fillStyle = C.deepInk;
       const rear = carX + carW * 0.04;
       trails.forEach((tr) => {
         const len = (speed / 340) * vw * 0.4 * tr.len;
@@ -361,29 +326,154 @@
   }
 
   // ---------------------------------------------------------------
-  // Reduced motion or no Motion: draw the art once, no movement
+  // Daily: the app's one question, answered against the visitor's clock
+  // ---------------------------------------------------------------
+  function dailyCheck() {
+    const input = document.getElementById('dw-planned');
+    if (!input) return;
+    const out = document.getElementById('dw-planned-out');
+    const clockEl = document.getElementById('dw-now').parentElement;
+    const status = document.getElementById('dw-status');
+    const statusText = document.getElementById('dw-status-text');
+    const DAY_END = 23; // 11 pm, Daily's day window closes here in this demo
+
+    const fmt = (hours) => {
+      const total = Math.round(hours * 60);
+      const h = Math.floor(total / 60), m = total % 60;
+      if (h && m) return h + 'h ' + m + 'm';
+      return h ? h + 'h' : m + 'm';
+    };
+    const hoursLeft = () => {
+      const d = new Date();
+      return Math.max(0, DAY_END - (d.getHours() + d.getMinutes() / 60));
+    };
+
+    let last = '';
+    function update() {
+      const planned = Number(input.value);
+      const left = hoursLeft();
+      out.textContent = fmt(planned);
+      input.style.setProperty('--p', (planned / Number(input.max)) * 100 + '%');
+      input.setAttribute('aria-valuetext', fmt(planned) + ' planned');
+
+      const bold = (text) => Object.assign(document.createElement('b'), { textContent: text });
+      const time = new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }).toLowerCase();
+      clockEl.replaceChildren("It's ", bold(time), '. ');
+      if (left > 0) clockEl.append('Your day ends at 11 pm, ', bold(fmt(left)), ' from now.');
+      else clockEl.append('Your day window closed at 11 pm.');
+
+      let state, msg;
+      if (left <= 0) { state = 'over'; msg = 'Daily resets at midnight'; }
+      else if (planned <= left - 1) { state = 'ok'; msg = 'You have time to spare'; }
+      else if (planned <= left) { state = 'tight'; msg = 'Tight, but it fits'; }
+      else { state = 'over'; msg = 'Over by ' + fmt(planned - left); }
+
+      status.dataset.state = state;
+      if (msg !== last) {
+        statusText.classList.add('swap');
+        statusText.textContent = msg;
+        void statusText.offsetWidth;
+        statusText.classList.remove('swap');
+        last = msg;
+      }
+    }
+    input.addEventListener('input', update);
+    setInterval(update, 30000);
+    update();
+  }
+
+  // ---------------------------------------------------------------
+  // Reel Cards: flip to the dictionary form, grade it, next card
+  // ---------------------------------------------------------------
+  function reelDeck() {
+    const card = document.getElementById('flash-card');
+    if (!card) return;
+    const deck = [
+      { seen: 'allait', lemma: 'aller', meaning: 'verb, to go' },
+      { seen: 'mangeons', lemma: 'manger', meaning: 'verb, to eat' },
+      { seen: 'belles', lemma: 'beau', meaning: 'adjective, beautiful' },
+      { seen: 'voulais', lemma: 'vouloir', meaning: 'verb, to want' },
+      { seen: 'chevaux', lemma: 'cheval', meaning: 'masculine noun, horse' },
+    ];
+    const front = document.getElementById('flash-front');
+    const back = document.getElementById('flash-back');
+    const seen = document.getElementById('flash-seen');
+    const lemma = document.getElementById('flash-lemma');
+    const meaning = document.getElementById('flash-meaning');
+    const show = document.getElementById('flash-show');
+    const grades = document.getElementById('flash-grades');
+    const live = document.getElementById('flash-live');
+    let i = 0, busy = false;
+
+    function fill() {
+      const c = deck[i % deck.length];
+      seen.textContent = c.seen;
+      lemma.textContent = c.lemma;
+      meaning.textContent = c.meaning;
+    }
+
+    show.addEventListener('click', () => {
+      card.classList.add('flipped');
+      front.setAttribute('aria-hidden', 'true');
+      back.removeAttribute('aria-hidden');
+      show.hidden = true;
+      grades.hidden = false;
+      grades.classList.remove('pop');
+      void grades.offsetWidth;
+      grades.classList.add('pop');
+      const c = deck[i % deck.length];
+      live.textContent = c.seen + ' comes from ' + c.lemma + ', ' + c.meaning + '.';
+      grades.querySelector('.g-good').focus({ preventScroll: true });
+    });
+
+    grades.addEventListener('click', (e) => {
+      const btn = e.target.closest('.grade');
+      if (!btn || busy) return;
+      busy = true;
+      card.classList.add('leaving');
+      setTimeout(() => {
+        i += 1;
+        card.style.transition = 'none';
+        card.classList.remove('flipped', 'leaving');
+        fill();
+        void card.offsetWidth;
+        card.style.transition = '';
+        card.classList.add('arriving');
+        front.removeAttribute('aria-hidden');
+        back.setAttribute('aria-hidden', 'true');
+        grades.hidden = true;
+        show.hidden = false;
+        show.focus({ preventScroll: true });
+        live.textContent = 'Graded ' + btn.textContent + '. Next card: ' + deck[i % deck.length].seen + '.';
+        setTimeout(() => { card.classList.remove('arriving'); busy = false; }, 560);
+      }, 260);
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // Reduced motion or no Motion: draw the art once, still
   // ---------------------------------------------------------------
   function staticArt() {
     const heroImg = document.querySelector('.hero-photo');
-    const portrait = A.create(document.querySelector('.hero-ascii'), heroImg, portraitOptions({ cols: (w) => (w < 420 ? 54 : 76) }));
-    A.ready(heroImg).then(() => { portrait.layout(); root.classList.add('ascii-ready'); }).catch(() => {});
+    const art = A.create(document.querySelector('.hero-ascii'), heroImg, portrait({ cols: (w) => (w < 420 ? 54 : 78) }));
+    A.ready(heroImg).then(() => { art.layout(); root.classList.add('ascii-ready'); }).catch(() => {});
 
     const img = new Image();
     img.src = 'Img/f1-car.jpg';
     const car = A.create(document.querySelector('.car-ascii'), img, carOptions);
     A.ready(img).then(() => car.layout()).catch(() => {});
-    layouts.push(() => { portrait.layout(); car.layout(); });
+    layouts.push(() => { art.layout(); car.layout(); });
   }
 
   function splitWords(node) {
     const words = node.textContent.trim().split(/\s+/);
     node.textContent = '';
-    return words.map((word, i) => {
+    return words.map((word, n) => {
       const span = document.createElement('span');
       span.className = 'w';
       span.textContent = word;
       node.appendChild(span);
-      if (i < words.length - 1) node.appendChild(document.createTextNode(' '));
+      if (n < words.length - 1) node.appendChild(document.createTextNode(' '));
       return span;
     });
   }

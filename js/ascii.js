@@ -161,11 +161,9 @@
       // scrambled cells draw on top in the accent colour
       ctx.fillStyle = o.accent;
       ctx.globalAlpha = 0.95;
-      const decoding = now < decodeUntil;
       for (let i = 0; i < levels.length; i++) {
         if (now < settleAt[i] || now < scramble[i]) {
-          if (levels[i] === 0 && !decoding) continue;
-          if (levels[i] === 0 && Math.random() > 0.18) continue;
+          if (levels[i] === 0) continue; // only the subject scrambles, never the empty ground
           if (dissolve > 0 && thresholds[i] <= dissolve) continue;
           ctx.fillText(randChar(), (i % cols) * cellW, ((i / cols) | 0) * cellH);
         }

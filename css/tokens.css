@@ -27,17 +27,38 @@
   --ok: oklch(.5 .13 150);
   --warn: oklch(.55 .12 75);
 
+  /* colours that belong to other things: the start-light gantry, the F1
+     photo's own backdrop, Daily's status lights and the Reel Cards app */
+  --gantry: #05070A;
+  --lamp-off: #1C1F26;
+  --plate-f1: #E3DFD4;
+  --paper: #FFFFFF;
+  --paper-ink: #111111;
+  --paper-muted: rgb(60 60 67 / .72);
+  --state-ok: #3FB86B;
+  --state-tight: #E5B33A;
+  --state-over: #FF5A52;
+  --reel-from: #5B57E0;
+  --reel-to: #1A7BF5;
+  --grade-again: #D92D20;
+  --grade-hard: #B25E00;
+  --grade-good: #1F7A36;
+  --grade-easy: #0062CC;
+
   /* faces */
   --font-display: "Host Grotesk", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
   --font-text: "Host Grotesk", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  /* few sizes, far apart */
+  /* eight sizes, far apart; nothing on the site uses any other */
   --step-small: clamp(.8125rem, .79rem + .1vw, .875rem);
+  --step-ui: .9375rem;
   --step-body: clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
   --step-lead: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
+  --step-sub: clamp(1.625rem, 1.1rem + 1.6vw, 2.5rem);
   --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
   --step-display: clamp(3.25rem, 1rem + 8.2vw, 9rem);
+  --step-closing: 23.5vw;
 
   /* space */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
@@ -88,6 +109,7 @@ a { color: inherit; text-underline-offset: .18em; text-decoration-thickness: .07
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .tabular { font-variant-numeric: tabular-nums; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[hidden] { display: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
